@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Tenant_Signup_Form"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sign Up"
+            android:textSize="50dp"
+            android:textStyle="bold"
+            android:textColor="@color/colorAccent"
+            />
+
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Personal Details"
+            android:textSize="25dp"
+            android:textStyle="normal"
+            android:textColor="@color/colorAccent" />
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:textColorHint="@color/colorAccent">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Full Name"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:textSize="20dp"
+                android:id="@+id/fullname"
+                />
+        </android.support.design.widget.TextInputLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:textColorHint="@color/colorAccent">
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Age"
+                android:ems="10"
+                android:inputType="number"
+                android:textSize="20dp"
+                android:id="@+id/age"
+                />
+        </android.support.design.widget.TextInputLayout>
+        <Spinner
+            android:id="@+id/sexSpinner"
+            android:layout_width="129dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="75dp"
+            android:layout_marginTop="10dp"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:textColorHint="@color/colorAccent">
+            <com.santalu.maskedittext.MaskEditText
+                android:id="@+id/phonenumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Phone Number"
+                android:ems="10"
+                android:inputType="phone"
+                app:met_mask="##########"
+                android:textSize="20dp"
+                />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:textColorHint="@color/colorAccent">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Email-Id"
+                android:ems="10"
+                android:inputType="textEmailAddress"
+                android:textSize="20dp"
+                android:id="@+id/email"
+                />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="290dp"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:textColorHint="@color/colorAccent">
+            <com.santalu.maskedittext.MaskEditText
+                android:id="@+id/aadharnumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Aadhar Number"
+                android:ems="10"
+                android:inputType="phone"
+                app:met_mask="############"
+                android:textSize="20dp"
+                />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:textColorHint="@color/colorAccent">
+            <EditText
+                android:id="@+id/hometownaddress"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="Hometown Address"
+                android:gravity="start|top"
+                android:inputType="textMultiLine"
+                />
+        </android.support.design.widget.TextInputLayout>
+
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Proffession"
+            android:textSize="25dp"
+            android:textStyle="normal"
+            android:id="@+id/proffession"
+            android:textColor="@color/colorAccent"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/radiogroup"
+                android:orientation="horizontal">
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Student"
+                    android:id="@+id/radiobutton1"
+                    android:textColor="@color/colorAccent"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Working"
+                    android:id="@+id/radiobutton2"
+                    android:textColor="@color/colorAccent"
+                    android:layout_marginLeft="120dp"/>
+            </RadioGroup>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:textColorHint="@color/colorAccent">
+                <EditText
+                    android:layout_width="175dp"
+                    android:layout_height="wrap_content"
+                    android:hint="College Name"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:textSize="20dp"
+                    android:id="@+id/collegename"
+                    android:enabled="false"
+                    />
+            </android.support.design.widget.TextInputLayout>
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:textColorHint="@color/colorAccent">
+                <EditText
+                    android:layout_width="175dp"
+                    android:layout_height="wrap_content"
+                    android:hint="Company Name"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:textSize="20dp"
+                    android:id="@+id/companyname"
+                    android:layout_marginLeft="25dp"
+                    android:enabled="false"
+                    />
+            </android.support.design.widget.TextInputLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:textColorHint="@color/colorAccent">
+                <EditText
+                    android:layout_width="175dp"
+                    android:layout_height="wrap_content"
+                    android:hint="College Address"
+                    android:ems="10"
+                    android:textSize="20dp"
+                    android:id="@+id/collegeaddress"
+                    android:gravity="start|top"
+                    android:inputType="textMultiLine"
+                    android:enabled="false"
+                    />
+            </android.support.design.widget.TextInputLayout>
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:textColorHint="@color/colorAccent">
+                <EditText
+                    android:layout_width="175dp"
+                    android:layout_height="wrap_content"
+                    android:hint="Company Address"
+                    android:ems="10"
+                    android:id="@+id/companyaddress"
+                    android:gravity="start|top"
+                    android:inputType="textMultiLine"
+                    android:textSize="20dp"
+                    android:layout_marginLeft="25dp"
+                    android:enabled="false"
+                    />
+            </android.support.design.widget.TextInputLayout>
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Login Details"
+            android:textSize="25dp"
+            android:textStyle="normal"
+            android:textColor="@color/colorAccent"
+            />
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:textColorHint="@color/colorAccent">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="username"
+                android:ems="10"
+                android:inputType="text"
+                android:textSize="20dp"
+                android:id="@+id/username"
+                />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:textColorHint="@color/colorAccent"
+            app:passwordToggleEnabled="true"
+            app:counterEnabled="true"
+            app:counterMaxLength="20">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Password"
+                android:ems="10"
+                android:inputType="textPassword"
+                android:textSize="20dp"
+                android:id="@+id/password"
+                android:maxLength="20"
+                />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            app:passwordToggleEnabled="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:textColorHint="@color/colorAccent">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Confirm password"
+                android:ems="10"
+                android:inputType="textPassword"
+                android:textSize="20dp"
+                android:id="@+id/confirmpassword"
+                android:maxLength="20"
+                />
+        </android.support.design.widget.TextInputLayout>
+
+
+
+        <Button
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:text="Register"
+            android:layout_gravity="center"
+            android:textSize="20sp"
+            android:layout_marginTop="75dp"
+            android:id="@+id/registerButton"
+            android:background="@drawable/button_shape"
+            />
+
+
+    </LinearLayout>L
+    </LinearLayout>
+</ScrollView>
