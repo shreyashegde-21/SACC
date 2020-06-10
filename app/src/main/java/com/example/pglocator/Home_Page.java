@@ -30,8 +30,7 @@ private DrawerLayout drawer;
         toggle.syncState();
 
         BottomNavigationView bottomnavigationview = findViewById(R.id.homepagebottomnavigationview);
-
-
+        bottomnavigationview.setOnNavigationItemSelectedListener(listener);
     }
 
     @Override
@@ -43,4 +42,37 @@ private DrawerLayout drawer;
             super.onBackPressed();
         }
     }
+
+    private BottomNavigationView.OnNavigationItemSelectedListener listener = new
+            BottomNavigationView.OnNavigationItemSelectedListener() {
+                @Override
+                public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                    Fragment selectedfragment = null;
+                    switch(menuItem.getItemId()){
+
+                        case R.id.tiffin:
+                            selectedfragment = new tiffinfragment();
+                            break;
+
+                        case R.id.search:
+                            selectedfragment = new searchfragment();
+                            break;
+
+                        case R.id.home:
+                            selectedfragment = new homefragment();
+                            break;
+
+                        case R.id.wallet:
+                            selectedfragment = new walletfragment();
+                            break;
+
+                        case R.id.account:
+                            selectedfragment = new profilefragment();
+                            break;
+                    }
+                    getSupportFragmentManager().beginTransaction().replace(R.id.homepagefragmentcontainer,
+                            selectedfragment).commit();
+                    return true;
+                }
+            };
 }
