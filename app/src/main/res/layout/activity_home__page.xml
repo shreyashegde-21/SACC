@@ -11,42 +11,48 @@
     tools:openDrawer="start"
     >
 
-    <LinearLayout
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
         <android.support.v7.widget.Toolbar
+            android:id="@+id/homepagetoolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@color/colorPrimary"
-            android:id="@+id/homepagetoolbar"
-            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
             android:elevation="4dp"
-            />
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/homepagefragmentcontainer"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
         <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="465dp"
             android:id="@+id/homepagefragmentcontainer"
+            android:layout_width="match_parent"
+            android:layout_height="713dp"
             android:layout_above="@+id/framelayout"
-            />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/homepagebottomnavigationview"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/homepagetoolbar" />
 
 
         <android.support.design.widget.BottomNavigationView
-            android:layout_width="match_parent"
-            android:layout_height="46dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            layout_alignParentBottom="true"
             android:id="@+id/homepagebottomnavigationview"
+            layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:background="?android:attr/windowBackground"
-            app:menu="@menu/bottom_navigation"
-            />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/homepagefragmentcontainer"
+            app:menu="@menu/bottom_navigation" />
 
-    </LinearLayout>
+    </android.support.constraint.ConstraintLayout>
 
     <android.support.design.widget.NavigationView
         android:layout_width="wrap_content"

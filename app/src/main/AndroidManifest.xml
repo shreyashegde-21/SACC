@@ -11,20 +11,20 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".Home_Page"
-            android:theme="@style/AppTheme.NoActionbar">
+            android:theme="@style/AppTheme.NoActionbar"></activity>
+        <activity android:name=".Tiffin_Service_Displayer" />
+        <activity
+            android:name=".WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Wallet_Fragment" />
-        <activity android:name=".Tiffin_Fragment" />
         <activity android:name=".Tenant_Signup_Form" />
         <activity android:name=".Owner_Signup_Form" />
         <activity android:name=".MainActivity" />
-        <activity
-            android:name=".Login_Activity" />
+        <activity android:name=".Login_Activity" />
     </application>
 
 </manifest>
