@@ -8,19 +8,25 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
-public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
+public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder>{
 
-    private static final String TAG = "recycleradapter";
     private Context mcontext;
     List<Tiffin_Information> tiffinservices;
+   //  List<Tiffin_Information> tiffinservicescopy;
+
     public RecyclerAdapter(Context mcontext, List<Tiffin_Information> tiffinservices) {
         this.mcontext = mcontext;
         this.tiffinservices = tiffinservices;
+        // this.tiffinservicescopy = new ArrayList<>(tiffinservices);
     }
 
     @NonNull
@@ -68,8 +74,43 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         return tiffinservices.size();
     }
 
+   /* @Override
+    public Filter getFilter() {
+        return examplefilter;
+    }
 
-            class ViewHolder extends RecyclerView.ViewHolder {
+    private Filter examplefilter = new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            List<Tiffin_Information> filteredlist = new ArrayList<>();
+
+            if(constraint.toString().isEmpty()){
+                filteredlist.addAll(tiffinservicescopy);
+            }
+            else{
+                String filterpattern = constraint.toString().toLowerCase();
+
+                for(Tiffin_Information item:tiffinservicescopy){
+                    if(item.getTsname().toLowerCase().contains(filterpattern)){
+                        filteredlist.add(item);
+                    }
+                }
+            }
+            FilterResults results = new FilterResults();
+            results.values = filteredlist;
+            return results;
+        }
+
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+        tiffinservices.clear();
+        tiffinservices.addAll((Collection<? extends Tiffin_Information>) results.values);
+        notifyDataSetChanged();
+        }
+    };*/
+
+
+    class ViewHolder extends RecyclerView.ViewHolder {
 
         ImageView rowimageview;
         TextView rowtextview, rowtextview2;
