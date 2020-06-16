@@ -31,7 +31,7 @@
             android:textStyle="normal"
             android:textColor="@color/colorAccent" />
 
-        <android.support.design.widget.TextInputLayout
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:focusable="true"
@@ -46,14 +46,14 @@
                 android:textSize="20dp"
                 android:id="@+id/ownerfullname"
                 />
-        </android.support.design.widget.TextInputLayout>
+        </com.google.android.material.textfield.TextInputLayout>
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-            <android.support.design.widget.TextInputLayout
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="130dp"
                 android:layout_height="wrap_content"
                 android:focusable="true"
@@ -68,7 +68,7 @@
                     android:textSize="20dp"
                     android:id="@+id/ownerage"
                     />
-            </android.support.design.widget.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
             <Spinner
                 android:id="@+id/ownersexSpinner"
                 android:layout_width="129dp"
@@ -82,7 +82,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-            <android.support.design.widget.TextInputLayout
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:focusable="true"
@@ -98,9 +98,9 @@
                     app:met_mask="##########"
                     android:textSize="20dp"
                     />
-            </android.support.design.widget.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <android.support.design.widget.TextInputLayout
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:focusable="true"
@@ -115,9 +115,9 @@
                     android:textSize="20dp"
                     android:id="@+id/owneremail"
                     />
-            </android.support.design.widget.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <android.support.design.widget.TextInputLayout
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="290dp"
                 android:layout_height="wrap_content"
                 android:focusable="true"
@@ -133,7 +133,7 @@
                     app:met_mask="############"
                     android:textSize="20dp"
                     />
-            </android.support.design.widget.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
 
 
@@ -147,7 +147,7 @@
                 android:textColor="@color/colorAccent"
                 />
 
-            <android.support.design.widget.TextInputLayout
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:focusable="true"
@@ -162,9 +162,9 @@
                     android:textSize="20dp"
                     android:id="@+id/ownerusername"
                     />
-            </android.support.design.widget.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <android.support.design.widget.TextInputLayout
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:focusable="true"
@@ -183,9 +183,9 @@
                     android:id="@+id/ownerpassword"
                     android:maxLength="20"
                     />
-            </android.support.design.widget.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <android.support.design.widget.TextInputLayout
+            <com.google.android.material.textfield.TextInputLayout
                 app:passwordToggleEnabled="true"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -202,7 +202,7 @@
                     android:id="@+id/ownerconfirmpassword"
                     android:maxLength="20"
                     />
-            </android.support.design.widget.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
 
 

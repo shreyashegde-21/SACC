@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     android:id="@+id/rowid"
     android:clickable="true"
     android:foreground="?attr/selectableItemBackground"
@@ -48,4 +48,4 @@
         app:layout_constraintStart_toStartOf="@+id/rowtextview"
         app:layout_constraintTop_toBottomOf="@+id/rowtextview" />
 
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
