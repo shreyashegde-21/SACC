@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".OTP_Page"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="30dp"
+        android:orientation="vertical">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_closeicon"
+            android:tint="@color/colorPrimaryDark"
+            android:padding="5dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/code"
+            android:textSize="100sp"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimaryDark"
+            android:textAllCaps="true"
+            android:layout_gravity="center"
+            android:includeFontPadding="false"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/verification"
+            android:textSize="24sp"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimaryDark"
+            android:textAllCaps="true"
+            android:layout_gravity="center"
+            android:includeFontPadding="false"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_height="wrap_content"
+            android:text="@string/verificationdescription"
+            android:textSize="16sp"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_gravity="center"
+            android:includeFontPadding="false"
+            />
+        <TextView
+            android:id="@+id/phonenodisplayer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textAlignment="center"
+            android:text="phone no"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_gravity="center"
+            android:includeFontPadding="false"
+            />
+
+        <com.chaos.view.PinView
+            android:id="@+id/pinview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            app:itemCount="6"
+            app:itemWidth="50dp"
+            app:itemHeight="50dp"
+            android:layout_gravity="center"
+            app:lineColor="@color/colorAccent"
+            android:itemBackground="@color/cardview_light_background"
+            style="@style/PinWidget.PinView"
+            android:inputType="number"
+            android:cursorVisible="true"
+            app:cursorColor="@color/colorPrimaryDark"
+            app:hideLineWhenFilled="true"
+            app:itemRadius="5dp"
+            />
+
+        <Button
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_shape"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:text="Verify Code"
+            android:onClick="FinalVerification"
+            android:id="@+id/verifycode"
+            android:textSize="20dp"
+            android:textColor="@color/colorPrimaryDark"
+            />
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:id="@+id/progressbar"
+            />
+
+    </LinearLayout>
+
+</ScrollView>
