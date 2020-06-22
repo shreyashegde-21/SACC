@@ -129,5 +129,8 @@ public class OTP_Page extends AppCompatActivity {
         if(!cd.isEmpty()){
             verifycode(cd);
         }
+
+        Intent into = new Intent(OTP_Page.this, Home_Page.class);
+        startActivity(into);
     }
 }
