@@ -1,28 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context=".Tenant_Signup_Form"
+    android:orientation="vertical">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     tools:context=".Login_Activity"
     android:orientation="vertical"
     android:padding="30dp">
+
+    <ImageView
+        android:transitionName="imagetransition"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/ic_launcher_background"
+        android:id="@+id/loginpagelogo"
+        />
+
     <TextView
+        android:transitionName="texttransition"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/bangers"
         android:text="Pg Locator"
+        android:textColor="@color/colorAccent"
         android:textSize="50dp"
         android:textStyle="normal"
-        android:textColor="@color/colorAccent"
-        android:layout_gravity="center"
-        />
+        android:id="@+id/loginpagename"/>
+
     <TextView
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="75dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Login"
-        android:textSize="25dp"
+        android:textSize="35dp"
         android:textStyle="normal"
         android:textColor="@color/colorAccent"
         />
@@ -32,18 +49,54 @@
         android:layout_height="wrap_content"
         android:focusable="true"
         android:focusableInTouchMode="true"
-        android:layout_marginTop="90dp"
+        android:layout_marginTop="10dp"
         android:textColorHint="@color/colorAccent">
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="username"
+            android:hint="E-Mail"
             android:ems="10"
-            android:inputType="text"
+            android:inputType="textEmailAddress"
             android:textSize="20dp"
-            android:id="@+id/username"
+            android:id="@+id/loginpageemail"
             />
     </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New to PG-LOCATOR?"
+            android:textColor="@color/colorAccent"
+            android:layout_marginTop="2dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/loginpageregisterationlink"
+            android:clickable="true"
+            android:autoLink="all"
+            android:text="Sign Up Here"
+            android:textColor="@color/colorAccent"
+            android:layout_marginTop="2dp"
+            android:layout_marginLeft="110dp"
+            />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/loginpageverifyemaillink"
+        android:text="Sign Up Here"
+        android:clickable="false"
+        android:visibility="invisible"
+        android:textColor="@color/colorAccent"
+        android:layout_marginTop="15dp"
+        android:onClick="loginpageverifyemail"
+        />
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
@@ -60,43 +113,31 @@
             android:ems="10"
             android:inputType="textPassword"
             android:textSize="20dp"
-            android:id="@+id/password"
+            android:id="@+id/loginpagepassword"
             android:maxLength="20"
             />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="New to PG-LOCATOR?"
-            android:textColor="@color/colorAccent"
-            android:layout_marginTop="2dp"
-            />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
-        android:id="@+id/registerationlink"
+        android:id="@+id/loginpageforgotpaswordlink"
         android:autoLink="all"
-        android:text="Register Here"
+        android:text="Forgot Password?"
         android:textColor="@color/colorAccent"
-        android:onClick="showpopup"
         android:layout_marginTop="2dp"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="215dp"
         />
-    </LinearLayout>
 
     <Button
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:text="Register"
+        android:text="Login"
         android:layout_gravity="center"
         android:textSize="20sp"
-        android:layout_marginTop="20dp"
-        android:id="@+id/registerButton"
+        android:layout_marginTop="75dp"
+        android:id="@+id/loginpageloginbutton"
         android:background="@drawable/button_shape"
         />
 
@@ -108,8 +149,9 @@
         android:layout_marginTop="5dp"
         android:clickable="true"
         android:layout_gravity="center"
-        android:id="@+id/homepagelink"
+        android:id="@+id/loginpagehomepagelink"
         android:autoLink="all"
         />
 
 </LinearLayout>
+</ScrollView>

@@ -13,17 +13,31 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Sign Up"
-            android:textSize="50dp"
-            android:textStyle="bold"
-            android:textColor="@color/colorAccent"
-            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sign Up"
+                android:textSize="50dp"
+                android:textStyle="bold"
+                android:textColor="@color/colorAccent"
+                />
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginLeft="105dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/ic_launcher_background" />
+
+        </LinearLayout>
 
         <TextView
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="-20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Personal Details"
@@ -44,10 +58,9 @@
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:textSize="20dp"
-                android:id="@+id/ownerfullname"
+                android:id="@+id/ospfullname"
                 />
         </com.google.android.material.textfield.TextInputLayout>
-
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -66,11 +79,11 @@
                     android:ems="10"
                     android:inputType="number"
                     android:textSize="20dp"
-                    android:id="@+id/ownerage"
+                    android:id="@+id/ospage"
                     />
             </com.google.android.material.textfield.TextInputLayout>
             <Spinner
-                android:id="@+id/ownersexSpinner"
+                android:id="@+id/ospsexSpinner"
                 android:layout_width="129dp"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="75dp"
@@ -82,6 +95,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
@@ -89,13 +103,13 @@
                 android:focusableInTouchMode="true"
                 android:textColorHint="@color/colorAccent">
                 <com.santalu.maskedittext.MaskEditText
-                    android:id="@+id/ownerphonenumber"
+                    android:id="@+id/ospphonenumber"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:hint="Phone Number"
                     android:ems="10"
                     android:inputType="phone"
-                    app:met_mask="##########"
+                    app:met_mask="+91##########"
                     android:textSize="20dp"
                     />
             </com.google.android.material.textfield.TextInputLayout>
@@ -113,7 +127,7 @@
                     android:ems="10"
                     android:inputType="textEmailAddress"
                     android:textSize="20dp"
-                    android:id="@+id/owneremail"
+                    android:id="@+id/ospemail"
                     />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -124,7 +138,7 @@
                 android:focusableInTouchMode="true"
                 android:textColorHint="@color/colorAccent">
                 <com.santalu.maskedittext.MaskEditText
-                    android:id="@+id/owneraadharnumber"
+                    android:id="@+id/ospaadharnumber"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Aadhar Number"
@@ -134,8 +148,6 @@
                     android:textSize="20dp"
                     />
             </com.google.android.material.textfield.TextInputLayout>
-
-
 
             <TextView
                 android:layout_marginTop="20dp"
@@ -152,7 +164,9 @@
                 android:layout_height="wrap_content"
                 android:focusable="true"
                 android:focusableInTouchMode="true"
-                android:textColorHint="@color/colorAccent">
+                android:textColorHint="@color/colorAccent"
+                app:counterEnabled="true"
+                app:counterMaxLength="20">
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -160,7 +174,7 @@
                     android:ems="10"
                     android:inputType="text"
                     android:textSize="20dp"
-                    android:id="@+id/ownerusername"
+                    android:id="@+id/ospusername"
                     />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -180,7 +194,7 @@
                     android:ems="10"
                     android:inputType="textPassword"
                     android:textSize="20dp"
-                    android:id="@+id/ownerpassword"
+                    android:id="@+id/osppassword"
                     android:maxLength="20"
                     />
             </com.google.android.material.textfield.TextInputLayout>
@@ -199,25 +213,36 @@
                     android:ems="10"
                     android:inputType="textPassword"
                     android:textSize="20dp"
-                    android:id="@+id/ownerconfirmpassword"
+                    android:id="@+id/ospconfirmpassword"
                     android:maxLength="20"
                     />
             </com.google.android.material.textfield.TextInputLayout>
 
-
-
             <Button
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
-                android:text="Register"
+                android:text="Sign Up"
                 android:layout_gravity="center"
                 android:textSize="20sp"
                 android:layout_marginTop="75dp"
-                android:id="@+id/ownerregisterButton"
+                android:id="@+id/ospregisterButton"
                 android:background="@drawable/button_shape"
+                android:onClick="Registeruser"
+                android:layout_marginBottom="10dp"
                 />
 
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:id="@+id/ospprogressbar"
+                android:layout_marginBottom="30dp"
+                android:visibility="invisible"
+                />
 
-        </LinearLayout>L
+        </LinearLayout>
+
     </LinearLayout>
+
 </ScrollView>

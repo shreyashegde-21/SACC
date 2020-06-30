@@ -12,13 +12,7 @@
         android:layout_height="wrap_content"
         android:padding="30dp"
         android:orientation="vertical">
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_closeicon"
-            android:tint="@color/colorPrimaryDark"
-            android:padding="5dp"
-            />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -30,6 +24,7 @@
             android:layout_gravity="center"
             android:includeFontPadding="false"
             />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -41,6 +36,7 @@
             android:layout_gravity="center"
             android:includeFontPadding="false"
             />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_marginTop="50dp"
@@ -52,8 +48,9 @@
             android:layout_gravity="center"
             android:includeFontPadding="false"
             />
+
         <TextView
-            android:id="@+id/phonenodisplayer"
+            android:id="@+id/otppphonenodisplayer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="16sp"
@@ -65,7 +62,7 @@
             />
 
         <com.chaos.view.PinView
-            android:id="@+id/pinview"
+            android:id="@+id/otpppinview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
@@ -83,15 +80,48 @@
             app:itemRadius="5dp"
             />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="timer"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_marginTop="8dp"
+            android:id="@+id/otppcounter"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Resend OTP"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_marginTop="8dp"
+            android:id="@+id/otppresendotp"
+            android:clickable="true"
+            android:autoLink="all"
+            android:onClick="resendotp"
+            android:visibility="invisible"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="Press 'Resend OTP Link' if OTP doesn't\narrive untill the timer runs out."
+            android:textColor="@color/colorPrimaryDark"
+            />
+
         <Button
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:background="@drawable/button_shape"
             android:layout_gravity="center"
-            android:layout_marginTop="50dp"
-            android:text="Verify Code"
+            android:layout_marginTop="35dp"
+            android:text="Verify OTP"
             android:onClick="FinalVerification"
-            android:id="@+id/verifycode"
+            android:id="@+id/otppverifycodebutton"
             android:textSize="20dp"
             android:textColor="@color/colorPrimaryDark"
             />
@@ -101,7 +131,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="30dp"
-            android:id="@+id/progressbar"
+            android:id="@+id/otppprogressbar"
             />
 
     </LinearLayout>

@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.pglocator">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".pgfirebase"
         android:allowBackup="true"
@@ -13,12 +15,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:appComponentFactory">
-        <activity android:name=".OTP_Page"></activity>
+        <activity android:name=".Forgot_Password" />
+        <activity android:name=".OTP_Page" />
         <activity
             android:name=".Home_Page"
             android:theme="@style/AppTheme.NoActionbar" />
         <activity android:name=".Tiffin_Service_Displayer" />
-        <activity android:name=".WelcomeActivity">
+        <activity
+            android:name=".WelcomeActivity"
+            android:theme="@style/AppTheme.NoActionbar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -28,7 +33,12 @@
         <activity android:name=".Tenant_Signup_Form" />
         <activity android:name=".Owner_Signup_Form" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".Login_Activity" />
+        <activity android:name=".Login_Activity"
+/>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

@@ -5,11 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
@@ -19,139 +21,153 @@ import android.widget.Toast;
 import com.basgeekball.awesomevalidation.AwesomeValidation;
 import com.basgeekball.awesomevalidation.ValidationStyle;
 import com.basgeekball.awesomevalidation.utility.RegexTemplate;
-import com.firebase.client.Firebase;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class Tenant_Signup_Form extends AppCompatActivity {
-    private Button registerbutton;
-    private TextView proffessiontextview;
-    private RadioGroup radiogroup;
-    private RadioButton student, working;
-    private EditText fullname, age, phonenumber, email,
-            aadharnumber, hometownaddress, username, password, confirmpassword,
-            collegename, collegeaddress, companyname, companyaddress;
-    private Spinner sexSpinner;
+    private Button tspregisterbutton;
+    private TextView tspproffessiontextview;
+    private RadioGroup tspradiogroup;
+    private RadioButton tspstudent, tspworking;
+    private EditText tspfullname, tspage, tspphonenumber, tspemail,
+            tspaadharnumber, tsphometownaddress, tspusername, tsppassword, tspconfirmpassword,
+            tspcollegename, tspcollegeaddress, tspcompanyname, tspcompanyaddress;
+    private Spinner tspsexSpinner;
+    private ProgressBar tspprogressbar;
+    String TAG = "tp";
 
-    AwesomeValidation validation;
+    AwesomeValidation tspvalidation;
 
-    private FirebaseDatabase rootref;
-    private DatabaseReference reference;
+    private FirebaseDatabase fData;
+    private DatabaseReference fRef;
+    private FirebaseAuth fAuth;
+    private FirebaseUser fUser;
+    //private FirebaseFirestore fstore;
+    private String userID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tenant_signup__form);
+        fAuth = FirebaseAuth.getInstance();
+        //fstore = FirebaseFirestore.getInstance();
 
-        fullname = (EditText) findViewById(R.id.fullname);
-        age = (EditText) findViewById(R.id.age);
+        tspfullname = (EditText) findViewById(R.id.tspfullname);
+        tspage = (EditText) findViewById(R.id.tspage);
 
-        sexSpinner = (Spinner) findViewById(R.id.sexSpinner);
+        tspsexSpinner = (Spinner) findViewById(R.id.tspsexSpinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.sex, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        sexSpinner.setAdapter(adapter);
+        tspsexSpinner.setAdapter(adapter);
 
-        phonenumber =(EditText) findViewById(R.id.phonenumber);
-        email =(EditText) findViewById(R.id.email);
-        aadharnumber =(EditText) findViewById(R.id.aadharnumber);
-        hometownaddress =(EditText) findViewById(R.id.hometownaddress);
-        proffessiontextview = (TextView) findViewById(R.id.proffessiontextview);
-        radiogroup = (RadioGroup) findViewById(R.id.radiogroup);
-        student = findViewById(R.id.radiobutton1);
-        working = findViewById(R.id.radiobutton2);
-        collegename = findViewById(R.id.collegename);
-        collegeaddress = findViewById(R.id.collegeaddress);
-        companyname = findViewById(R.id.companyname);
-        companyaddress = findViewById(R.id.companyaddress);
+        tspphonenumber =(EditText) findViewById(R.id.tspphonenumber);
+        tspemail =(EditText) findViewById(R.id.tspemail);
+        tspaadharnumber =(EditText) findViewById(R.id.tspaadharnumber);
+        tsphometownaddress =(EditText) findViewById(R.id.tsphometownaddress);
+        tspproffessiontextview = (TextView) findViewById(R.id.tspproffessiontextview);
+        tspradiogroup = (RadioGroup) findViewById(R.id.tspradiogroup);
+        tspstudent = findViewById(R.id.tspradiobuttonstudent);
+        tspworking = findViewById(R.id.tspradiobuttonworking);
+        tspcollegename = findViewById(R.id.tspcollegename);
+        tspcollegeaddress = findViewById(R.id.tspcollegeaddress);
+        tspcompanyname = findViewById(R.id.tspcompanyname);
+        tspcompanyaddress = findViewById(R.id.tspcompanyaddress);
 
-        student.setOnClickListener(new View.OnClickListener() {
+        tspstudent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                collegename.setEnabled(true);
-                collegeaddress.setEnabled(true);
-                companyname.setEnabled(false);
-                companyaddress.setEnabled(false);
+                tspcollegename.setEnabled(true);
+                tspcollegeaddress.setEnabled(true);
+                tspcompanyname.setEnabled(false);
+                tspcompanyaddress.setEnabled(false);
             }
         });
-        working.setOnClickListener(new View.OnClickListener() {
+        tspworking.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                companyname.setEnabled(true);
-                companyaddress.setEnabled(true);
-                collegename.setEnabled(false);
-                collegeaddress.setEnabled(false);
+                tspcompanyname.setEnabled(true);
+                tspcompanyaddress.setEnabled(true);
+                tspcollegename.setEnabled(false);
+                tspcollegeaddress.setEnabled(false);
             }
         });
 
-        username =(EditText) findViewById(R.id.username);
-        password =(EditText) findViewById(R.id.password);
-        confirmpassword =(EditText) findViewById(R.id.confirmpassword);
-        registerbutton = findViewById(R.id.registerButton);
+        tspusername =(EditText) findViewById(R.id.tspusername);
+        tsppassword =(EditText) findViewById(R.id.tsppassword);
+        tspconfirmpassword =(EditText) findViewById(R.id.tspconfirmpassword);
+        tspregisterbutton = (Button) findViewById(R.id.tspregisterButton);
+        tspprogressbar = (ProgressBar) findViewById(R.id.tspprogressbar);
 
         }
 
         private Boolean validatephonenumber(){
-        String val = phonenumber.getText().toString();
+        String val = tspphonenumber.getText().toString();
         if(val.isEmpty()){
-            phonenumber.setError("This Field Cannot Be Left Empty.");
+            tspphonenumber.setError("This Field Cannot Be Left Empty.");
             return false;
         }
         else{
-            phonenumber.setError(null);
+            tspphonenumber.setError(null);
             return true;
         }
     }
 
         private Boolean validateradiogroup(){
-        int val = radiogroup.getCheckedRadioButtonId();
+        int val = tspradiogroup.getCheckedRadioButtonId();
         if(val == -1){
-            proffessiontextview.setError("This Field Cannot Be Left Empty.");
+            tspproffessiontextview.setError("This Field Cannot Be Left Empty.");
             return false;
         }
         else{
-            proffessiontextview.setError(null);
+            tspproffessiontextview.setError(null);
             return true;
         }
     }
 
         private Boolean validateradiogroupoptions(){
-        String val1 = collegename.getText().toString();
-        String val2= companyname.getText().toString();
-        String val3 = collegeaddress.getText().toString();
-        String val4 = companyaddress.getText().toString();
+        String val1 = tspcollegename.getText().toString();
+        String val2= tspcompanyname.getText().toString();
+        String val3 = tspcollegeaddress.getText().toString();
+        String val4 = tspcompanyaddress.getText().toString();
 
         if(!validateradiogroup()){
             return true;
         }
-        else if(student.isChecked()) {
+        else if(tspstudent.isChecked()) {
             if (val1.isEmpty()) {
-                collegename.setError("This Field Cannot Be Left Empty.");
+                tspcollegename.setError("This Field Cannot Be Left Empty.");
                 return false;
             } else if (val3.isEmpty()) {
-                collegeaddress.setError("This Field Cannot Be Left Empty.");
+                tspcollegeaddress.setError("This Field Cannot Be Left Empty.");
                 return false;
             } else {
-                collegename.setError(null);
-                collegeaddress.setError(null);
+                tspcollegename.setError(null);
+                tspcollegeaddress.setError(null);
                 return true;
             }
         }
         else{
             if(val2.isEmpty()){
-                companyname.setError("This Field Cannot Be Left Empty.");
+                tspcompanyname.setError("This Field Cannot Be Left Empty.");
                 return false;
             }
             else if(val4.isEmpty()){
-                companyaddress.setError("This Field Cannot Be Left Empty.");
+                tspcompanyaddress.setError("This Field Cannot Be Left Empty.");
                 return false;
             }
             else{
-                companyname.setError(null);
-                companyaddress.setError(null);
+                tspcompanyname.setError(null);
+                tspcompanyaddress.setError(null);
                 return true;
             }
         }
@@ -159,113 +175,170 @@ public class Tenant_Signup_Form extends AppCompatActivity {
     }
 
         private Boolean validateusername(){
-        String val = username.getText().toString();
-        String nowhitespace = "\\A\\w{4,20}\\z";
+        String val = tspusername.getText().toString();
+        String nowhitespace = "\\A\\w{6,20}\\z";
         if(val.isEmpty()){
-            username.setError("This Field Cannot Be Left Empty.");
+            tspusername.setError("This Field Cannot Be Left Empty.");
+            return false;
+        }
+        else if(val.length()<6){
+            tspusername.setError("Username Should Be Between 6-20 Characters.");
             return false;
         }
         else if(val.length()>20){
-            username.setError("Username Should Be Less Than 20 Characters.");
+            tspusername.setError("Username Should Be Between 6-20 Characters.");
             return false;
         }
         else if(!val.matches(nowhitespace)){
-            username.setError("White Spaces Are Not Allowed.");
+            tspusername.setError("White Spaces Are Not Allowed.");
             return false;
         }
         else{
-                username.setError(null);
+                tspusername.setError(null);
                 return true;
         }
     }
 
-        private Boolean validatepassword(){
-        String val = password.getText().toString();
+        private Boolean validatepassword() {
+        String val = tsppassword.getText().toString();
         String passwordrequirements =   "^"+
                                         "(?=.*[a-zA-Z])"+
                                         "(?=.*[@#$%^&+=])"+
                                         ".{6,}"+
                                         "$";
         if(val.isEmpty()){
-            password.setError("This Field Cannot Be Left Empty.");
+            tsppassword.setError("This Field Cannot Be Left Empty.");
             return false;
         }
         else if(!val.matches(passwordrequirements)){
-            password.setError("password should contain 6-20 characters, atleast 1 upper-case and a lower-case alphabet,\n" +
-                    "        atleast 1 numerical digit and a special character without any spaces.");
+            tsppassword.setError("password should contain 6-20 characters, atleast one any case alphabet" +
+                    "and a special character without any spaces.");
             return false;
         }
         else{
-            password.setError(null);
+            tsppassword.setError(null);
             return true;
         }
     }
 
+        public void Registeruser(View view) {
 
-        public void Registeruser(View view){
+        tspprogressbar.setVisibility(View.VISIBLE);
 
-        validation = new AwesomeValidation(ValidationStyle.BASIC);
-        validation.addValidation(this, R.id.fullname, RegexTemplate.NOT_EMPTY,R.string.invalid_name);
-        validation.addValidation(this, R.id.age, RegexTemplate.NOT_EMPTY, R.string.invalid_age);
-        validation.addValidation(this, R.id.email, Patterns.EMAIL_ADDRESS,R.string.invalid_email);
-        validation.addValidation(this, R.id.aadharnumber, ".{12,}", R.string.invalid_aadhar);
-        validation.addValidation(this, R.id.hometownaddress, RegexTemplate.NOT_EMPTY, R.string.invalid_hometownaddress);
-        validation.addValidation(this, R.id.confirmpassword, R.id.password,R.string.invalid_confirmpassword);
+        tspvalidation = new AwesomeValidation(ValidationStyle.BASIC);
+        tspvalidation.addValidation(this, R.id.tspfullname, RegexTemplate.NOT_EMPTY,R.string.invalid_name);
+        tspvalidation.addValidation(this, R.id.tspage, RegexTemplate.NOT_EMPTY, R.string.invalid_age);
+        tspvalidation.addValidation(this, R.id.tspemail, Patterns.EMAIL_ADDRESS,R.string.invalid_email);
+        tspvalidation.addValidation(this, R.id.tspaadharnumber, ".{12,}", R.string.invalid_aadhar);
+        tspvalidation.addValidation(this, R.id.tsphometownaddress, RegexTemplate.NOT_EMPTY, R.string.invalid_hometownaddress);
+        tspvalidation.addValidation(this, R.id.tspconfirmpassword, R.id.tsppassword,R.string.invalid_confirmpassword);
 
-        if(!validation.validate() | !validatephonenumber() |!validateradiogroup() | !validateradiogroupoptions() |
+        if(!tspvalidation.validate() | !validatephonenumber() |!validateradiogroup() | !validateradiogroupoptions() |
                 !validateusername() | !validatepassword()){
+            tspprogressbar.setVisibility(View.INVISIBLE);
             return ;
         }
 
-        rootref = FirebaseDatabase.getInstance();
-        reference = rootref.getReference("Tenants");
-
-        String NAME = fullname.getText().toString();
-        int AGE = Integer.parseInt(age.getText().toString());
-        String SEX = sexSpinner.getSelectedItem().toString();
-        String PHONENUMBER = phonenumber.getText().toString();
-        String EMAIL = email.getText().toString();
-        String AADHARNUMBER = aadharnumber.getText().toString();
-        String HOMETOWNADDRESS = hometownaddress.getText().toString();
-        String USERNAME = username.getText().toString();
-        String PASSWORD = password.getText().toString();
-
-            Intent into = new Intent(Tenant_Signup_Form.this, OTP_Page.class);
-            into.putExtra("PHONENUMBER",PHONENUMBER);
-            startActivity(into);
-
-        Tenant_helper_Class helperclass = new Tenant_helper_Class(NAME, AGE, SEX, PHONENUMBER, EMAIL, AADHARNUMBER,
-                HOMETOWNADDRESS, PROFFESSION(),COLLEGEORCOMPANYNAME(), COLLEGEORCOMPANYADDRESS(),  USERNAME, PASSWORD);
-
-        reference.child(NAME).setValue(helperclass);
+        sendUserData();
     }
 
+    private void sendUserData() {
 
-        private String COLLEGEORCOMPANYADDRESS() {
-        if(student.isChecked()){
-            return collegeaddress.getText().toString();
+        fData = FirebaseDatabase.getInstance();
+        fRef = fData.getReference("Tenants");
+        String NAME = tspfullname.getText().toString();
+        int AGE = Integer.parseInt(tspage.getText().toString());
+        String SEX = tspsexSpinner.getSelectedItem().toString();
+        String PHONENUMBER = tspphonenumber.getText().toString();
+        String EMAIL = tspemail.getText().toString();
+        String AADHARNUMBER = tspaadharnumber.getText().toString();
+        String HOMETOWNADDRESS = tsphometownaddress.getText().toString();
+        String USERNAME = tspusername.getText().toString();
+        String PASSWORD = tsppassword.getText().toString();
+
+        fAuth.createUserWithEmailAndPassword(EMAIL, PASSWORD).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if(!task.isSuccessful()){
+                    tspprogressbar.setVisibility(View.INVISIBLE);
+                    Toast.makeText(Tenant_Signup_Form.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                else{
+                    fUser = fAuth.getCurrentUser();
+                    if(fUser!=null){
+                        fUser.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if(task.isSuccessful()){
+                                    Toast.makeText(getApplicationContext(), "Verification Mail Sent.\nPlease verify your mail to login.", Toast.LENGTH_LONG).show();
+                                    fAuth.signOut();
+
+                                }
+                                else{
+                                    Log.d(TAG, "cox");
+                                    Toast.makeText(getApplicationContext(), "Verification Mail couldn't be sent.\nTry Again!", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
+                    }
+                }
+            }
+        });
+        userID = fAuth.getCurrentUser().getUid();
+
+       /* DocumentReference docref = fstore.collection("Tenants").document(userID);
+        Map<String, Object> helperclass = new HashMap<>();
+        helperclass.put("Name :", )*/
+
+
+       Tenant_helper_Class helperclass = new Tenant_helper_Class(NAME, AGE, SEX, PHONENUMBER, EMAIL, AADHARNUMBER,
+                HOMETOWNADDRESS, PROFFESSION(),COLLEGEORCOMPANYNAME(), COLLEGEORCOMPANYADDRESS(),  USERNAME, PASSWORD);
+        fRef.child(userID).setValue(helperclass).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (!task.isSuccessful()){
+                    Log.d(TAG, "ERROR because"+userID+task.toString());
+                    tspprogressbar.setVisibility(View.INVISIBLE);
+                    Toast.makeText(Tenant_Signup_Form.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                else{
+                    tspprogressbar.setVisibility(View.INVISIBLE);
+                    String PHONENUMBER = tspphonenumber.getText().toString();
+                    Intent into = new Intent(Tenant_Signup_Form.this, OTP_Page.class);
+                    into.putExtra("PHONENUMBER",PHONENUMBER);
+                    startActivity(into);
+                }
+            }
+        });
+    }
+
+    private String COLLEGEORCOMPANYADDRESS() {
+        if(tspstudent.isChecked()){
+            return tspcollegeaddress.getText().toString();
         }
         else{
-            return companyaddress.getText().toString();
+            return tspcompanyaddress.getText().toString();
         }
     }
 
         private String COLLEGEORCOMPANYNAME() {
-        if(student.isChecked()){
-            return collegename.getText().toString();
+        if(tspstudent.isChecked()){
+            return tspcollegename.getText().toString();
         }
         else{
-            return companyname.getText().toString();
+            return tspcompanyname.getText().toString();
         }
 
     }
 
         private String PROFFESSION() {
-        if(student.isChecked()){
-            return student.getText().toString();
+        if(tspstudent.isChecked()){
+            return tspstudent.getText().toString();
         }
         else{
-            return working.getText().toString();
+            return tspworking.getText().toString();
         }
     }
 }
