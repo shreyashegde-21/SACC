@@ -1,6 +1,9 @@
 package com.example.pglocator;
 
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -11,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DataSnapshot;
@@ -23,7 +27,7 @@ import java.util.ArrayList;
 
 public class homefragment extends Fragment {
 
-    private ProgressDialog postProgress;
+   private ProgressDialog postProgress;
     private RecyclerView mBlogList;
     private DatabaseReference mpostDatabase;
     ArrayList<PostModelClass> blist;
@@ -65,6 +69,9 @@ public class homefragment extends Fragment {
             }
         });
         postProgress.dismiss();
+
+
+
         return view;
          
     }

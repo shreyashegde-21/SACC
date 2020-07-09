@@ -1,5 +1,6 @@
 package com.example.pglocator;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -79,7 +80,6 @@ public class Liked_RecyclerView_Adapter extends RecyclerView.Adapter<Liked_Recyc
         TextView rowtextview, rowtextview2;
         ConstraintLayout rowlayout;
 
-
         public Liked_ViewHolder(@NonNull View itemView) {
 
             super(itemView);
@@ -91,6 +91,8 @@ public class Liked_RecyclerView_Adapter extends RecyclerView.Adapter<Liked_Recyc
         }
         public void setImage(Context context, String image) {
             Picasso.get().load(image).into(rowimageview);
+
+
         }
     }
 

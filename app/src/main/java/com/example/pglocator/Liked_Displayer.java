@@ -93,4 +93,53 @@ public class Liked_Displayer extends AppCompatActivity {
         partialtext2.setVisibility(View.VISIBLE);
     }
     }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        likedfinallist.clear();
+
+        if (FirebaseAuth.getInstance().getCurrentUser() != null) {
+            fData.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.hasChild(fAuth.getCurrentUser().getUid())) {
+                        fsuperdata = fData.child(fAuth.getCurrentUser().getUid());
+                        fsuperdata.addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                for (DataSnapshot datasnapshot1 : dataSnapshot.getChildren()) {
+                                    addsite_helper_class a = datasnapshot1.getValue(addsite_helper_class.class);
+                                    likedfinallist.add(a);
+                                }
+
+                                adapter = new Liked_RecyclerView_Adapter(Liked_Displayer.this, likedfinallist);
+                                likeddisplayerrecyclerview.setAdapter(adapter);
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                            }
+                        });
+                    } else {
+
+                        likeddisplayerrecyclerview.setVisibility(View.GONE);
+                        partialtext.setVisibility(View.VISIBLE);
+                    }
+
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+        }else{
+            likeddisplayerrecyclerview.setVisibility(View.GONE);
+            partialtext2.setVisibility(View.VISIBLE);
+        }
+
+
+    }
 }

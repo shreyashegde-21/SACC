@@ -1,5 +1,6 @@
 package com.example.pglocator;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -70,13 +71,13 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
         TextView title;
         ImageView mImage;
 
-
         public PostViewHolder(@NonNull View itemView) {
 
             super(itemView);
             mView = itemView.findViewById(R.id.blog_rowid);
             title = itemView.findViewById(R.id.post_title);
         }
+
         public void setImage(Context ctx, String image){
             mImage = mView.findViewById(R.id.post_image);
             Picasso.get().load(image).into(mImage);

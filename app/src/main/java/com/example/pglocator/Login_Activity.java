@@ -1,9 +1,13 @@
 package com.example.pglocator;
 
+import android.content.Context;
 import android.content.Intent;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -147,6 +151,18 @@ public class Login_Activity extends AppCompatActivity{
                 });
             }
         });
+
+        checkconnection();
+    }
+
+    private void checkconnection() {
+
+        ConnectivityManager cm = (ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+
+        if(activeNetwork == null){
+        Toast.makeText(getApplicationContext(), "No Internet Connection!", Toast.LENGTH_SHORT).show();
+        }
     }
 
     private boolean checkEmailVerification() {

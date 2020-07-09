@@ -37,41 +37,112 @@ public class tiffinfragment extends Fragment {
         DividerItemDecoration divideritemdecoration = new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL);
         recyclerview.addItemDecoration(divideritemdecoration);
 
-        tiffinservices.add(new Tiffin_Information(R.drawable.tiffinimage, "oberoi catering services", "9029512341",
-                "andheri", "b1,703,anand krupa tower, hajuri road,thane.", "veg along with egg diishes",
-                "we provide an ample variety of food types and dishes which will change your taste buds",
-                "100-25k", "we dont work on sundays:)"));
+        tiffinservices.add(new Tiffin_Information(R.drawable.t1, "Siddhivinayak Caterers", "8456971235",
+                "Dadar, Mumbai", "Ram maruti road, Near Siddhivinayak temple, Dadar.", "Veg, Nonveg and Jain too",
+                "Office Delivery.\nMonthly Packages available.\nWeekly packages available.\nBreakfast, Lunch and Dinner served." +
+                        "\nHome delivery.\nAdditional Charges on extra requirements.(Depending on food type, quantity and delivery location)\nPrior info to be provided when tiffin not needed else would need to pay the fine!",
+                "on per month basis(INR):\nVeg - 7000\nNon-veg - 10000\nJain - 8500", "There will be a monthly off which will be informed:)"));
+        tiffinservices.add(new Tiffin_Information(R.drawable.t2, "Sharanu Caterers", "9456712354",
+                "Thane, Mumbai", "Amar Nivas, Near station road, Behind eternity mall,Thane(w).", "Veg, Nonveg and Jain too",
+                "Office Delivery.\nMonthly Packages available.\nWeekly packages available.\nBreakfast, Lunch and Dinner served." +
+                        "\nHome delivery.\nAdditional Charges on extra requirements.(Depending on food type, quantity and delivery location)\nPrior info to be provided when tiffin not needed else would need to pay the fine!",
+                "on per month basis(INR):\nVeg - 6000\nNon-veg - 15000\nJain - 7500", "There will be a weekly off which will be informed:)"));
+        tiffinservices.add(new Tiffin_Information(R.drawable.t3, "mahalakshmi poli bhaji kendra", "8456712395",
+                "panvel, Mumbai", "shakuni nagar, mahatma road, behind sai baba temple, panvel", "Veg, Nonveg ",
+                "Office Delivery.\nWeekly packages available.\nLunch and Dinner served." +
+                        "\nHome delivery.\nAdditional Charges on extra requirements.(Depending on food type, quantity and delivery location)\nPrior info to be provided when tiffin not needed else would need to pay the fine!",
+                "on per month basis(INR):\nVeg - 10000\nNon-veg - 20000", "More Discount offers on more quantity "));
+        tiffinservices.add(new Tiffin_Information(R.drawable.t4, "Oberoi catering services", "7621459875",
+                "dombivali, Mumbai", "krishna nagar, nehru road, behind durga temple, tees gaon naka", "veg and Nonveg ",
+                "Weekly packages available.\nLunch and Dinner served." +
+                        "\nHome delivery.\nAdditional Charges on extra requirements.(Depending on food type, quantity and delivery location)\nPrior info to be provided when tiffin not needed else would need to pay the fine!",
+                "on per month basis(INR):\nVeg - 10000\nNon-veg - 20000", "we work 24*7:) "));
+
+        tiffinservices.add(new Tiffin_Information(R.drawable.t1, "Durga caterers", "8456971235",
+                "kolkata", "Ram maruti road, Near Siddhivinayak temple, Dadar.", "Veg, Nonveg and Jain too",
+                "Office Delivery.\nMonthly Packages available.\nWeekly packages available.\nBreakfast, Lunch and Dinner served." +
+                        "\nHome delivery.\nAdditional Charges on extra requirements.(Depending on food type, quantity and delivery location)\nPrior info to be provided when tiffin not needed else would need to pay the fine!",
+                "on per month basis(INR):\nVeg - 7000\nNon-veg - 10000\nJain - 8500", "There will be a monthly off which will be informed:)"));
+        tiffinservices.add(new Tiffin_Information(R.drawable.t2, "bhalo bashi khaana", "9456712354",
+                "siliguri, kolkata", "Amar Nivas, Near station road, Behind eternity mall,Thane(w).", "Veg, Nonveg and Jain too",
+                "Office Delivery.\nMonthly Packages available.\nWeekly packages available.\nBreakfast, Lunch and Dinner served." +
+                        "\nHome delivery.\nAdditional Charges on extra requirements.(Depending on food type, quantity and delivery location)\nPrior info to be provided when tiffin not needed else would need to pay the fine!",
+                "on per month basis(INR):\nVeg - 6000\nNon-veg - 15000\nJain - 7500", "There will be a weekly off which will be informed:)"));
+        tiffinservices.add(new Tiffin_Information(R.drawable.t3, "ami shotti bol che food services", "8456712395",
+                "asansol, kolkata", "shakuni nagar, mahatma road, behind sai baba temple, panvel", "Veg, Nonveg ",
+                "Office Delivery.\nWeekly packages available.\nLunch and Dinner served." +
+                        "\nHome delivery.\nAdditional Charges on extra requirements.(Depending on food type, quantity and delivery location)\nPrior info to be provided when tiffin not needed else would need to pay the fine!",
+                "on per month basis(INR):\nVeg - 10000\nNon-veg - 20000", "More Discount offers on more quantity "));
+        tiffinservices.add(new Tiffin_Information(R.drawable.t4, "machi khana", "7621459875",
+                "durgapur, kolkata", "krishna nagar, nehru road, behind durga temple, tees gaon naka", "veg and Nonveg ",
+                "Weekly packages available.\nLunch and Dinner served." +
+                        "\nHome delivery.\nAdditional Charges on extra requirements.(Depending on food type, quantity and delivery location)\nPrior info to be provided when tiffin not needed else would need to pay the fine!",
+                "on per month basis(INR):\nVeg - 10000\nNon-veg - 20000", "we work 24*7:) "));
+
+        tiffinservices.add(new Tiffin_Information(R.drawable.t1, "Kasikannu catering world", "8456971235",
+                "chennai", "Ram maruti road, Near Siddhivinayak temple, Dadar.", "Veg, Nonveg and Jain too",
+                "Office Delivery.\nMonthly Packages available.\nWeekly packages available.\nBreakfast, Lunch and Dinner served." +
+                        "\nHome delivery.\nAdditional Charges on extra requirements.(Depending on food type, quantity and delivery location)\nPrior info to be provided when tiffin not needed else would need to pay the fine!",
+                "on per month basis(INR):\nVeg - 7000\nNon-veg - 10000\nJain - 8500", "There will be a monthly off which will be informed:)"));
+        tiffinservices.add(new Tiffin_Information(R.drawable.t2, "chennai catering services", "9456712354",
+                "ayanavaram, chennai", "Amar Nivas, Near station road, Behind eternity mall,Thane(w).", "Veg, Nonveg and Jain too",
+                "Office Delivery.\nMonthly Packages available.\nWeekly packages available.\nBreakfast, Lunch and Dinner served." +
+                        "\nHome delivery.\nAdditional Charges on extra requirements.(Depending on food type, quantity and delivery location)\nPrior info to be provided when tiffin not needed else would need to pay the fine!",
+                "on per month basis(INR):\nVeg - 6000\nNon-veg - 15000\nJain - 7500", "There will be a weekly off which will be informed:)"));
+        tiffinservices.add(new Tiffin_Information(R.drawable.t3, "namma veetu kalyanam catering", "8456712395",
+                "gopalapuram, chennai", "shakuni nagar, mahatma road, behind sai baba temple, panvel", "Veg, Nonveg ",
+                "Office Delivery.\nWeekly packages available.\nLunch and Dinner served." +
+                        "\nHome delivery.\nAdditional Charges on extra requirements.(Depending on food type, quantity and delivery location)\nPrior info to be provided when tiffin not needed else would need to pay the fine!",
+                "on per month basis(INR):\nVeg - 10000\nNon-veg - 20000", "More Discount offers on more quantity "));
+        tiffinservices.add(new Tiffin_Information(R.drawable.t4, "quality caterers", "7621459875",
+                "mudichur , chennai", "krishna nagar, nehru road, behind durga temple, tees gaon naka", "veg and Nonveg ",
+                "Weekly packages available.\nLunch and Dinner served." +
+                        "\nHome delivery.\nAdditional Charges on extra requirements.(Depending on food type, quantity and delivery location)\nPrior info to be provided when tiffin not needed else would need to pay the fine!",
+                "on per month basis(INR):\nVeg - 10000\nNon-veg - 20000", "we work 24*7:) "));
+
+        tiffinservices.add(new Tiffin_Information(R.drawable.t1, "mariamma catering", "8456971235",
+                "bangalore", "Ram maruti road, Near Siddhivinayak temple, Dadar.", "Veg, Nonveg and Jain too",
+                "Office Delivery.\nMonthly Packages available.\nWeekly packages available.\nBreakfast, Lunch and Dinner served." +
+                        "\nHome delivery.\nAdditional Charges on extra requirements.(Depending on food type, quantity and delivery location)\nPrior info to be provided when tiffin not needed else would need to pay the fine!",
+                "on per month basis(INR):\nVeg - 7000\nNon-veg - 10000\nJain - 8500", "There will be a monthly off which will be informed:)"));
+        tiffinservices.add(new Tiffin_Information(R.drawable.t2, "banashankari food services", "9456712354",
+                "jayanagar, bangalore", "Amar Nivas, Near station road, Behind eternity mall,Thane(w).", "Veg, Nonveg and Jain too",
+                "Office Delivery.\nMonthly Packages available.\nWeekly packages available.\nBreakfast, Lunch and Dinner served." +
+                        "\nHome delivery.\nAdditional Charges on extra requirements.(Depending on food type, quantity and delivery location)\nPrior info to be provided when tiffin not needed else would need to pay the fine!",
+                "on per month basis(INR):\nVeg - 6000\nNon-veg - 15000\nJain - 7500", "There will be a weekly off which will be informed:)"));
+        tiffinservices.add(new Tiffin_Information(R.drawable.t3, "manjunatha caterings", "8456712395",
+                "basavanagudi, bangalore", "shakuni nagar, mahatma road, behind sai baba temple, panvel", "Veg, Nonveg ",
+                "Office Delivery.\nWeekly packages available.\nLunch and Dinner served." +
+                        "\nHome delivery.\nAdditional Charges on extra requirements.(Depending on food type, quantity and delivery location)\nPrior info to be provided when tiffin not needed else would need to pay the fine!",
+                "on per month basis(INR):\nVeg - 10000\nNon-veg - 20000", "More Discount offers on more quantity "));
+        tiffinservices.add(new Tiffin_Information(R.drawable.t4, "bhavna foods", "7621459875",
+                "koramangala, bangalore", "krishna nagar, nehru road, behind durga temple, tees gaon naka", "veg and Nonveg ",
+                "Weekly packages available.\nLunch and Dinner served." +
+                        "\nHome delivery.\nAdditional Charges on extra requirements.(Depending on food type, quantity and delivery location)\nPrior info to be provided when tiffin not needed else would need to pay the fine!",
+                "on per month basis(INR):\nVeg - 10000\nNon-veg - 20000", "we work 24*7:) "));
+
+        tiffinservices.add(new Tiffin_Information(R.drawable.t1, "paji food services", "8456971235",
+                "Delhi", "Ram maruti road, Near Siddhivinayak temple, Dadar.", "Veg, Nonveg and Jain too",
+                "Office Delivery.\nMonthly Packages available.\nWeekly packages available.\nBreakfast, Lunch and Dinner served." +
+                        "\nHome delivery.\nAdditional Charges on extra requirements.(Depending on food type, quantity and delivery location)\nPrior info to be provided when tiffin not needed else would need to pay the fine!",
+                "on per month basis(INR):\nVeg - 7000\nNon-veg - 10000\nJain - 8500", "There will be a monthly off which will be informed:)"));
+        tiffinservices.add(new Tiffin_Information(R.drawable.t2, "excellent caterers", "9456712354",
+                "gurugram, delhi", "Amar Nivas, Near station road, Behind eternity mall,Thane(w).", "Veg, Nonveg and Jain too",
+                "Office Delivery.\nMonthly Packages available.\nWeekly packages available.\nBreakfast, Lunch and Dinner served." +
+                        "\nHome delivery.\nAdditional Charges on extra requirements.(Depending on food type, quantity and delivery location)\nPrior info to be provided when tiffin not needed else would need to pay the fine!",
+                "on per month basis(INR):\nVeg - 6000\nNon-veg - 15000\nJain - 7500", "There will be a weekly off which will be informed:)"));
+        tiffinservices.add(new Tiffin_Information(R.drawable.t3, "taj mahal foods", "8456712395",
+                "ghaziabad, delhi", "shakuni nagar, mahatma road, behind sai baba temple, panvel", "Veg, Nonveg ",
+                "Office Delivery.\nWeekly packages available.\nLunch and Dinner served." +
+                        "\nHome delivery.\nAdditional Charges on extra requirements.(Depending on food type, quantity and delivery location)\nPrior info to be provided when tiffin not needed else would need to pay the fine!",
+                "on per month basis(INR):\nVeg - 10000\nNon-veg - 20000", "More Discount offers on more quantity "));
+        tiffinservices.add(new Tiffin_Information(R.drawable.t4, "outstanding foods", "7621459875",
+                "mehrauli, delhi", "krishna nagar, nehru road, behind durga temple, tees gaon naka", "veg and Nonveg ",
+                "Weekly packages available.\nLunch and Dinner served." +
+                        "\nHome delivery.\nAdditional Charges on extra requirements.(Depending on food type, quantity and delivery location)\nPrior info to be provided when tiffin not needed else would need to pay the fine!",
+                "on per month basis(INR):\nVeg - 10000\nNon-veg - 20000", "we work 24*7:) "));
 
         return view;
     }
-
-   /* @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        setHasOptionsMenu(true);
-    }
-
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.filter, menu);
-
-        MenuItem searchitem = menu.findItem(R.id.searchfilter);
-        SearchView searchview = (SearchView) searchitem.getActionView();
-
-        searchview.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String s) {
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String s) {
-                recycleradapter.getFilter().filter(s);
-                return false;
-            }
-        });
-        return;
-    }*/
-
 
 }

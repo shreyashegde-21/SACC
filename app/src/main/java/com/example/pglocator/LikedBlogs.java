@@ -86,9 +86,55 @@ public class LikedBlogs extends AppCompatActivity {
             likedblogdisplayerrecyclerview.setVisibility(View.GONE);
             partialtext3.setVisibility(View.VISIBLE);
         }
+    }
 
+    @Override
+    protected void onRestart() {
+        super.onRestart();
 
+        likedblogfinallist.clear();
 
+        if (FirebaseAuth.getInstance().getCurrentUser() != null) {
+            fData.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.hasChild(fAuth.getCurrentUser().getUid())) {
+                        fsuperdata = fData.child(fAuth.getCurrentUser().getUid());
+                        fsuperdata.addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                for (DataSnapshot datasnapshot1 : dataSnapshot.getChildren()) {
+                                    PostModelClass a = datasnapshot1.getValue(PostModelClass.class);
+                                    likedblogfinallist.add(a);
+                                }
 
+                                adapter = new LikedBlogs_Recyclerviewadapter(getApplicationContext(), likedblogfinallist);
+                                likedblogdisplayerrecyclerview.setAdapter(adapter);
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                            }
+                        });
+                    } else {
+
+                        likedblogdisplayerrecyclerview.setVisibility(View.GONE);
+                        partialtext1.setVisibility(View.VISIBLE);
+
+                    }
+
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+        }else{
+
+            likedblogdisplayerrecyclerview.setVisibility(View.GONE);
+            partialtext3.setVisibility(View.VISIBLE);
+        }
     }
 }
