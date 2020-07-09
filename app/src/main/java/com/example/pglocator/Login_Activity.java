@@ -18,14 +18,21 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
-public class Login_Activity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener {
+public class Login_Activity extends AppCompatActivity{
     private TextView loginpagesignuppagetaker,loginpageverifyemaillink,
             loginpagehomepagetaker, loginpageforgotpasswordinitializer;
     private EditText loginpageemail, loginpagePassword;
     private Button loginpageloginbutton;
     private FirebaseAuth fAuth;
     private FirebaseUser fUser;
+    private DatabaseReference fData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,10 +60,7 @@ public class Login_Activity extends AppCompatActivity implements PopupMenu.OnMen
         loginpagesignuppagetaker.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                PopupMenu ownerortenant = new PopupMenu(getApplicationContext(), view);
-                ownerortenant.setOnMenuItemClickListener(Login_Activity.this);
-                ownerortenant.inflate(R.menu.popup_menu_tenant_or_owner);
-                ownerortenant.show();
+                startActivity(new Intent(getApplicationContext(), ownerortenantselection.class));
             }
         });
 
@@ -117,7 +121,6 @@ public class Login_Activity extends AppCompatActivity implements PopupMenu.OnMen
                     loginpagePassword.requestFocus();
                     return;
                 }
-
                 fAuth.signInWithEmailAndPassword(E, P).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -127,7 +130,7 @@ public class Login_Activity extends AppCompatActivity implements PopupMenu.OnMen
                         }
                         else{
                             if(checkEmailVerification()){
-                                Toast.makeText(Login_Activity.this, "Login Successful!", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), "Login Successful!", Toast.LENGTH_SHORT).show();
                                 Intent i = new Intent(Login_Activity.this, Home_Page.class);
                                 i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                 startActivity(i);
@@ -137,7 +140,6 @@ public class Login_Activity extends AppCompatActivity implements PopupMenu.OnMen
                                 loginpageverifyemaillink.setClickable(true);
                                 loginpageverifyemaillink.setError("PLease Verify your Email");
                                 loginpageverifyemaillink.requestFocus();
-
                             }
 
                         }
@@ -156,33 +158,6 @@ public class Login_Activity extends AppCompatActivity implements PopupMenu.OnMen
         }
         else{
             return false;
-        }
-    }
-
-    @Override
-    public boolean onMenuItemClick(MenuItem item) {
-        switch(item.getItemId()){
-            case R.id.tenant:
-                loginpagesignuppagetaker.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent into = new Intent(Login_Activity.this, Tenant_Signup_Form.class);
-                        startActivity(into);
-                    }
-                });
-                return true;
-
-            case R.id.owner:
-                loginpagesignuppagetaker.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent into1 = new Intent(Login_Activity.this, Owner_Signup_Form.class);
-                        startActivity(into1);
-                    }
-                });
-                return true;
-            default:
-                return false;
         }
     }
 }

@@ -11,22 +11,17 @@
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@mipmap/ic_launcher_round"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        app:srcCompat="@drawable/pglogo"
         />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:fontFamily="cursive"
         android:paddingTop="8dp"
-        android:text="shreyas hegde"
-        />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="hegdeshreyas214@gmail.com"
-        />
+        android:text="Pg Locator"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="35dp" />
 </LinearLayout>

@@ -14,7 +14,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        >
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/homepagetoolbar"
@@ -35,10 +36,9 @@
 
             android:id="@+id/homepagebottomnavigationview"
             layout_alignParentBottom="true"
-
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="?android:attr/windowBackground"
+            android:background="@color/fui_transparent"
             app:menu="@menu/bottom_navigation" />
 
     </LinearLayout>

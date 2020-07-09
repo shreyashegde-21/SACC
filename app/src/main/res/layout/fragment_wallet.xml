@@ -1,16 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center">
+    android:gravity="center"
+    android:padding="10dp">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="logout"
-        android:textSize="40dp"
-        android:gravity="center"
-        android:id="@+id/logout"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".MainActivity">
 
-</RelativeLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="25dp"
+            android:fontFamily="cursive"
+            android:includeFontPadding="false"
+            android:text="Payment"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="110sp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Respect Social Distancing!\nPay your house rent of tiffin payment\nnone other than here!"
+            android:textSize="15dp"
+            android:textAlignment="center"
+            android:textColor="@color/colorAccent"
+            android:textAllCaps="true"
+            android:layout_gravity="center"
+            android:includeFontPadding="false"
+            android:layout_marginTop="10dp"
+            />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:textColorHint="@color/colorAccent">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Name of Recipient"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:textSize="20dp"
+                android:id="@+id/wfname"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:textColorHint="@color/colorAccent">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="UPI ID"
+                android:ems="10"
+                android:textSize="20dp"
+                android:id="@+id/wfupi_id"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:textColorHint="@color/colorAccent">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Payment Amount"
+                android:ems="10"
+                android:inputType="number"
+                android:textSize="20dp"
+                android:id="@+id/wfamount_entered"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:textColorHint="@color/colorAccent">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Note"
+                android:ems="10"
+                android:inputType="textMultiLine"
+                android:textSize="20dp"
+                android:id="@+id/wfnote"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_shape"
+            android:layout_gravity="center"
+            android:layout_marginTop="100dp"
+            android:text="Pay Now"
+            android:onClick="FinalVerification"
+            android:id="@+id/wfsend"
+            android:textSize="20dp"
+            android:textColor="@color/colorPrimaryDark"
+            />
+
+
+    </LinearLayout>
+
+</ScrollView>

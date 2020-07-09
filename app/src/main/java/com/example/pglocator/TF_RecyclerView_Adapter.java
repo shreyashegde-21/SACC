@@ -13,31 +13,29 @@ import android.widget.TextView;
 
 import java.util.List;
 
-public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder>{
+public class TF_RecyclerView_Adapter extends RecyclerView.Adapter<TF_RecyclerView_Adapter.TF_ViewHolder>{
 
     private Context mcontext;
     List<Tiffin_Information> tiffinservices;
-   //  List<Tiffin_Information> tiffinservicescopy;
 
-    public RecyclerAdapter(Context mcontext, List<Tiffin_Information> tiffinservices) {
+    public TF_RecyclerView_Adapter(Context mcontext, List<Tiffin_Information> tiffinservices) {
         this.mcontext = mcontext;
         this.tiffinservices = tiffinservices;
-        // this.tiffinservicescopy = new ArrayList<>(tiffinservices);
     }
 
     @NonNull
     @Override
 
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public TF_ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
 
         LayoutInflater layoutinflater = LayoutInflater.from(viewGroup.getContext());
         View view = layoutinflater.inflate(R.layout.row_item, viewGroup, false);
-        ViewHolder viewholder = new ViewHolder(view);
+        TF_ViewHolder viewholder = new TF_ViewHolder(view);
         return viewholder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int i) {
+    public void onBindViewHolder(@NonNull TF_ViewHolder viewHolder, final int i) {
 
         viewHolder.rowtextview.setText(tiffinservices.get(i).getTsname());
         viewHolder.rowtextview2.setText(tiffinservices.get(i).getTslocation());
@@ -70,49 +68,13 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         return tiffinservices.size();
     }
 
-   /* @Override
-    public Filter getFilter() {
-        return examplefilter;
-    }
-
-    private Filter examplefilter = new Filter() {
-        @Override
-        protected FilterResults performFiltering(CharSequence constraint) {
-            List<Tiffin_Information> filteredlist = new ArrayList<>();
-
-            if(constraint.toString().isEmpty()){
-                filteredlist.addAll(tiffinservicescopy);
-            }
-            else{
-                String filterpattern = constraint.toString().toLowerCase();
-
-                for(Tiffin_Information item:tiffinservicescopy){
-                    if(item.getTsname().toLowerCase().contains(filterpattern)){
-                        filteredlist.add(item);
-                    }
-                }
-            }
-            FilterResults results = new FilterResults();
-            results.values = filteredlist;
-            return results;
-        }
-
-        @Override
-        protected void publishResults(CharSequence constraint, FilterResults results) {
-        tiffinservices.clear();
-        tiffinservices.addAll((Collection<? extends Tiffin_Information>) results.values);
-        notifyDataSetChanged();
-        }
-    };*/
-
-
-    class ViewHolder extends RecyclerView.ViewHolder {
+    class TF_ViewHolder extends RecyclerView.ViewHolder {
 
         ImageView rowimageview;
         TextView rowtextview, rowtextview2;
         ConstraintLayout rowlayout;
 
-        public ViewHolder(@NonNull View itemView) {
+        public TF_ViewHolder(@NonNull View itemView) {
             super(itemView);
             rowimageview = itemView.findViewById(R.id.rowimageview);
             rowtextview = itemView.findViewById(R.id.rowtextview);

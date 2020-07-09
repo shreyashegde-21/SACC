@@ -2,26 +2,69 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
-<group android:checkableBehavior="single">
-    <item android:id="@+id/message"
-        android:icon="@drawable/ic_message"
-        android:title="Message" />
-    <item android:id="@+id/chat"
-        android:icon="@drawable/ic_chat"
-        android:title="Chats" />
-    <item android:id="@+id/profile"
-        android:icon="@drawable/ic_profile"
-        android:title="Profile" />
+
+    <group android:checkableBehavior="single">
+    <item android:title="Account">
+        <menu>
+    <item
+        android:id="@+id/myprofile"
+        android:icon="@drawable/ic_myprofile"
+        android:title="My Profile" />
+        </menu>
+
+    </item>
 </group>
 
-    <item android:title="Communicate">
+    <group android:checkableBehavior="single">
+        <item android:title="app">
+            <menu>
+                <item
+                    android:id="@+id/add"
+                    android:icon="@drawable/ic_add"
+                    android:title="Add Site" />
+
+                <item
+                    android:id="@+id/liked"
+                    android:title="Liked Sites"
+                    android:icon="@drawable/ic_mypg"/>
+
+                <item
+                    android:id="@+id/add_post"
+                    android:icon="@drawable/ic_blog"
+                    android:title="Add Blog"/>
+
+                <item
+                    android:id="@+id/likedblogs"
+                    android:title="Liked Blogs"
+                    android:icon="@drawable/ic_liked"/>
+            </menu>
+        </item>
+    </group>
+
+    <group android:checkableBehavior="single">
+        <item android:title="access">
+            <menu>
+                <item android:id="@+id/signup"
+                    android:icon="@drawable/ic_signup"
+                    android:title="Signup" />
+                <item android:id="@+id/logout"
+                    android:icon="@drawable/log"
+                    android:title="Login/Logout"/>
+            </menu>
+        </item>
+    </group>
+
+    <group android:checkableBehavior="single">
+    <item
+        android:title="Information">
         <menu>
-            <item android:id="@+id/share"
-                android:icon="@drawable/ic_share"
-                android:title="Share" />
-            <item android:id="@+id/send"
-                android:icon="@drawable/ic_send"
-                android:title="Send" />
+        <item
+            android:id="@+id/aboutus"
+            android:icon="@drawable/aboutus"
+            android:title="About Us"/>
         </menu>
     </item>
+    </group>
+
+
 </menu>

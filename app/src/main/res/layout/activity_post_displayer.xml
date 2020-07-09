@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PostDisplayer"
+    android:orientation="vertical">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp">
+
+        <ImageView
+            android:id="@+id/postedImage"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:adjustViewBounds="true"
+            android:background="#FFFFFF"
+            android:scaleType="centerCrop"
+            app:srcCompat="@android:drawable/ic_menu_gallery"
+            tools:ignore="VectorDrawableCompat"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="0dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <Button
+            android:id="@+id/postlikebutton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:background="@drawable/favgrey"
+            app:layout_constraintEnd_toEndOf="@+id/postedImage"
+            app:layout_constraintTop_toTopOf="@+id/postedImage" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/titlePosted"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/arbutus_slab"
+        android:padding="5dp"
+        android:textStyle="bold"
+        android:textSize="25dp"
+        android:text="post title"
+        android:textColor="#000000"/>
+
+    <TextView
+        android:id="@+id/descPosted"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/arbutus_slab"
+        android:hint="Post Description"
+        android:padding="5dp"
+        android:textSize="20dp"
+        />
+</LinearLayout>
+</ScrollView>

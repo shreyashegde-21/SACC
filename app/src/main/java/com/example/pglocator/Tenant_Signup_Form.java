@@ -44,7 +44,6 @@ public class Tenant_Signup_Form extends AppCompatActivity {
             tspcollegename, tspcollegeaddress, tspcompanyname, tspcompanyaddress;
     private Spinner tspsexSpinner;
     private ProgressBar tspprogressbar;
-    String TAG = "tp";
 
     AwesomeValidation tspvalidation;
 
@@ -52,7 +51,6 @@ public class Tenant_Signup_Form extends AppCompatActivity {
     private DatabaseReference fRef;
     private FirebaseAuth fAuth;
     private FirebaseUser fUser;
-    //private FirebaseFirestore fstore;
     private String userID;
 
     @Override
@@ -60,7 +58,6 @@ public class Tenant_Signup_Form extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tenant_signup__form);
         fAuth = FirebaseAuth.getInstance();
-        //fstore = FirebaseFirestore.getInstance();
 
         tspfullname = (EditText) findViewById(R.id.tspfullname);
         tspage = (EditText) findViewById(R.id.tspage);
@@ -239,21 +236,12 @@ public class Tenant_Signup_Form extends AppCompatActivity {
             return ;
         }
 
-        sendUserData();
+        createUser();
     }
 
-    private void sendUserData() {
+        private void createUser() {
 
-        fData = FirebaseDatabase.getInstance();
-        fRef = fData.getReference("Tenants");
-        String NAME = tspfullname.getText().toString();
-        int AGE = Integer.parseInt(tspage.getText().toString());
-        String SEX = tspsexSpinner.getSelectedItem().toString();
-        String PHONENUMBER = tspphonenumber.getText().toString();
         String EMAIL = tspemail.getText().toString();
-        String AADHARNUMBER = tspaadharnumber.getText().toString();
-        String HOMETOWNADDRESS = tsphometownaddress.getText().toString();
-        String USERNAME = tspusername.getText().toString();
         String PASSWORD = tsppassword.getText().toString();
 
         fAuth.createUserWithEmailAndPassword(EMAIL, PASSWORD).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -272,12 +260,12 @@ public class Tenant_Signup_Form extends AppCompatActivity {
                             public void onComplete(@NonNull Task<Void> task) {
                                 if(task.isSuccessful()){
                                     Toast.makeText(getApplicationContext(), "Verification Mail Sent.\nPlease verify your mail to login.", Toast.LENGTH_LONG).show();
+                                    sendUserData();
                                     fAuth.signOut();
-
                                 }
                                 else{
-                                    Log.d(TAG, "cox");
                                     Toast.makeText(getApplicationContext(), "Verification Mail couldn't be sent.\nTry Again!", Toast.LENGTH_SHORT).show();
+                                    //user should be returned along with deleting his account.
                                 }
                             }
                         });
@@ -285,20 +273,32 @@ public class Tenant_Signup_Form extends AppCompatActivity {
                 }
             }
         });
+
+    }
+
+        private void sendUserData() {
+
+        fData = FirebaseDatabase.getInstance();
+        fRef = fData.getReference("Users");
+        fAuth = FirebaseAuth.getInstance();
+        String NAME = tspfullname.getText().toString();
+        int AGE = Integer.parseInt(tspage.getText().toString());
+        String SEX = tspsexSpinner.getSelectedItem().toString();
+        String PHONENUMBER = tspphonenumber.getText().toString();
+        String EMAIL = tspemail.getText().toString();
+        String AADHARNUMBER = tspaadharnumber.getText().toString();
+        String HOMETOWNADDRESS = tsphometownaddress.getText().toString();
+        String USERNAME = tspusername.getText().toString();
+        String PASSWORD = tsppassword.getText().toString();
         userID = fAuth.getCurrentUser().getUid();
 
-       /* DocumentReference docref = fstore.collection("Tenants").document(userID);
-        Map<String, Object> helperclass = new HashMap<>();
-        helperclass.put("Name :", )*/
 
-
-       Tenant_helper_Class helperclass = new Tenant_helper_Class(NAME, AGE, SEX, PHONENUMBER, EMAIL, AADHARNUMBER,
+        Tenant_helper_Class helperclass = new Tenant_helper_Class(userID, NAME, AGE, SEX, PHONENUMBER, EMAIL, AADHARNUMBER,
                 HOMETOWNADDRESS, PROFFESSION(),COLLEGEORCOMPANYNAME(), COLLEGEORCOMPANYADDRESS(),  USERNAME, PASSWORD);
         fRef.child(userID).setValue(helperclass).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (!task.isSuccessful()){
-                    Log.d(TAG, "ERROR because"+userID+task.toString());
                     tspprogressbar.setVisibility(View.INVISIBLE);
                     Toast.makeText(Tenant_Signup_Form.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                     return;
@@ -306,15 +306,16 @@ public class Tenant_Signup_Form extends AppCompatActivity {
                 else{
                     tspprogressbar.setVisibility(View.INVISIBLE);
                     String PHONENUMBER = tspphonenumber.getText().toString();
+                    //Toast.makeText(getApplicationContext(), "Registartion Successful!", Toast.LENGTH_SHORT).show();
                     Intent into = new Intent(Tenant_Signup_Form.this, OTP_Page.class);
-                    into.putExtra("PHONENUMBER",PHONENUMBER);
+                    into.putExtra("PHONENUMBER", PHONENUMBER);
                     startActivity(into);
                 }
             }
         });
     }
 
-    private String COLLEGEORCOMPANYADDRESS() {
+        private String COLLEGEORCOMPANYADDRESS() {
         if(tspstudent.isChecked()){
             return tspcollegeaddress.getText().toString();
         }

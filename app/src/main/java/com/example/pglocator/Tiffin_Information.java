@@ -11,6 +11,10 @@ public class Tiffin_Information {
     private String tsprices;
     private String tsadditionalinfo;
 
+    public Tiffin_Information() {
+
+    }
+
     public Tiffin_Information(int thumbnail, String tsname, String tsphonenumber, String tslocation,
                               String address, String tsfoodtype, String tsdescription, String tsprices,
                               String tsadditionalinfo) {

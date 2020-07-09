@@ -141,8 +141,51 @@ public class Owner_Signup_Form extends AppCompatActivity {
             return ;
         }
 
+        createOwner();
+    }
+
+    private void createOwner() {
+
+        String EMAIL = ospemail.getText().toString();
+        String PASSWORD = osppassword.getText().toString();
+
+        fAuth.createUserWithEmailAndPassword(EMAIL, PASSWORD).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if(!task.isSuccessful()){
+                    ospprogressbar.setVisibility(View.INVISIBLE);
+                    Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                else{
+
+                    if( fAuth.getCurrentUser() != null){
+                        fAuth.getCurrentUser().sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if(task.isSuccessful()){
+                                    Toast.makeText(getApplicationContext(), "Verification Mail Sent.\nPlease verify your mail to login.", Toast.LENGTH_LONG).show();
+                                    sendOwnerData();
+                                    fAuth.signOut();
+                                }
+                                else{
+                                    Toast.makeText(getApplicationContext(), "Verification Mail couldn't be sent.\nTry Again!", Toast.LENGTH_SHORT).show();
+                                    //user should be returned along with deleting his account.
+                                }
+                            }
+                        });
+                    }
+                }
+            }
+        });
+
+    }
+
+    private void sendOwnerData() {
+
         fData = FirebaseDatabase.getInstance();
         fRef = fData.getReference("Owners");
+        fAuth = FirebaseAuth.getInstance();
         String NAME = ospfullname.getText().toString();
         int AGE = Integer.parseInt(ospage.getText().toString());
         String SEX = ospsexSpinner.getSelectedItem().toString();
@@ -151,33 +194,28 @@ public class Owner_Signup_Form extends AppCompatActivity {
         String AADHARNUMBER = ospaadharnumber.getText().toString();
         String USERNAME = ospusername.getText().toString();
         String PASSWORD = osppassword.getText().toString();
+        String userID = fAuth.getCurrentUser().getUid();
 
-        Owner_helper_Class helperclass = new Owner_helper_Class(NAME, AGE, SEX, PHONENUMBER, EMAIL,
-                AADHARNUMBER, USERNAME, PASSWORD);
-        fRef.child(NAME).setValue(helperclass).addOnCompleteListener(new OnCompleteListener<Void>() {
+
+            Owner_helper_Class helperclass = new Owner_helper_Class(userID, NAME, AGE, SEX, PHONENUMBER, EMAIL, AADHARNUMBER,
+                    USERNAME, PASSWORD);
+        fRef.child(userID).setValue(helperclass).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (!task.isSuccessful()){
-                    Toast.makeText(Owner_Signup_Form.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                    ospprogressbar.setVisibility(View.INVISIBLE);
+                    Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                     return;
+                }
+                else{
+                    ospprogressbar.setVisibility(View.INVISIBLE);
+                    String PHONENUMBER = ospphonenumber.getText().toString();
+                    Intent into = new Intent(getApplicationContext(), OTP_Page.class);
+                    into.putExtra("PHONENUMBER", PHONENUMBER);
+                    startActivity(into);
                 }
             }
         });
-
-        fAuth.createUserWithEmailAndPassword(EMAIL, PASSWORD).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if(!task.isSuccessful()){
-                    Toast.makeText(Owner_Signup_Form.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                    return;
-                }
-            }
-        });
-
-        ospprogressbar.setVisibility(View.INVISIBLE);
-        Intent into = new Intent(Owner_Signup_Form.this, OTP_Page.class);
-        into.putExtra("PHONENUMBER",PHONENUMBER);
-        startActivity(into);
-
     }
+
 }

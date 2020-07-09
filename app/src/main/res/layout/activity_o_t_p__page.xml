@@ -16,26 +16,26 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/code"
-            android:textSize="100sp"
-            android:textAlignment="center"
-            android:textColor="@color/colorPrimaryDark"
-            android:textAllCaps="true"
             android:layout_gravity="center"
+            android:fontFamily="cursive"
             android:includeFontPadding="false"
-            />
+            android:text="@string/code"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="100sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/verification"
-            android:textSize="24sp"
-            android:textAlignment="center"
-            android:textColor="@color/colorPrimaryDark"
-            android:textAllCaps="true"
             android:layout_gravity="center"
+            android:fontFamily="cursive"
             android:includeFontPadding="false"
-            />
+            android:text="@string/verification"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@color/colorAccent"
+            android:textSize="24sp" />
 
         <TextView
             android:layout_width="wrap_content"

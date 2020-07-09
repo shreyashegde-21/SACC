@@ -7,42 +7,39 @@
     android:layout_height="match_parent"
     tools:context=".WelcomeActivity"
     android:orientation="vertical"
-    android:background="#000000">
+    android:background="@color/colorPrimary"
+    android:layout_gravity="center"
+    android:gravity="center">
 
     <ImageView
         android:transitionName="imagetransition"
         android:id="@+id/wplogo"
-        android:layout_width="390dp"
-        android:layout_height="450dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginRight="10dp"
-        android:src="@drawable/pgtemplogo" />
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_marginBottom="40dp"
+        android:src="@drawable/pglogo" />
 
     <TextView
         android:id="@+id/wpname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/bangers"
         android:layout_gravity="center_horizontal"
+        android:fontFamily="cursive"
         android:text="Pg Locator"
         android:textAlignment="center"
-        android:textColor="#ffffff"
-        android:textSize="70sp"
-        android:transitionName="texttransition"
-        />
+        android:textColor="#000000"
+        android:textSize="100sp"
+        android:transitionName="texttransition" />
 
     <TextView
+        android:id="@+id/wpdescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/antic"
         android:layout_gravity="center_horizontal"
+        android:fontFamily="@font/arbutus_slab"
         android:text="Connecting Travellers Together"
         android:textAlignment="center"
-        android:textColor="#ffffff"
-        android:textSize="18sp"
-        android:id="@+id/wpdescription"/>
+        android:textColor="#000000"
+        android:textSize="25sp" />
 
 </LinearLayout>

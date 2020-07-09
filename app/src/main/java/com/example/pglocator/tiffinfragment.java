@@ -6,10 +6,12 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.appcompat.widget.SearchView;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +19,8 @@ import java.util.List;
 public class tiffinfragment extends Fragment {
 
     RecyclerView recyclerview ;
-    RecyclerAdapter recycleradapter;
+    TF_RecyclerView_Adapter recycleradapter;
+    private FirebaseDatabase fData;
     List<Tiffin_Information> tiffinservices;
 
     @Nullable
@@ -27,7 +30,7 @@ public class tiffinfragment extends Fragment {
 
         tiffinservices = new ArrayList<>();
         recyclerview = view.findViewById(R.id.recyclerView);
-        recycleradapter = new RecyclerAdapter(getContext(), tiffinservices);
+        recycleradapter = new TF_RecyclerView_Adapter(getContext(), tiffinservices);
         recyclerview.setAdapter(recycleradapter);
 
 
@@ -38,39 +41,7 @@ public class tiffinfragment extends Fragment {
                 "andheri", "b1,703,anand krupa tower, hajuri road,thane.", "veg along with egg diishes",
                 "we provide an ample variety of food types and dishes which will change your taste buds",
                 "100-25k", "we dont work on sundays:)"));
-        tiffinservices.add(new Tiffin_Information(R.drawable.tiffinimage, "manish catering services", "9029512341",
-                "andheri", "b1,703,anand krupa tower, hajuri road,thane.", "veg along with egg diishes",
-                "we provide an ample variety of food types and dishes which will change your taste buds",
-                "100-25k", "we dont work on sundays:)"));
-        tiffinservices.add(new Tiffin_Information(R.drawable.tiffinimage, "raju catering services", "9029512341",
-                "andheri", "b1,703,anand krupa tower, hajuri road,thane.", "veg along with egg diishes",
-                "we provide an ample variety of food types and dishes which will change your taste buds",
-                "100-25k", "we dont work on sundays:)"));
-        tiffinservices.add(new Tiffin_Information(R.drawable.tiffinimage, "katrina catering services", "9029512341",
-                "andheri", "b1,703,anand krupa tower, hajuri road,thane.", "veg along with egg diishes",
-                "we provide an ample variety of food types and dishes which will change your taste buds",
-                "100-25k", "we dont work on sundays:)"));
-        tiffinservices.add(new Tiffin_Information(R.drawable.tiffinimage, "zahir catering services", "9029512341",
-                "andheri", "b1,703,anand krupa tower, hajuri road,thane.", "veg along with egg diishes",
-                "we provide an ample variety of food types and dishes which will change your taste buds",
-                "100-25k", "we dont work on sundays:)"));
-        tiffinservices.add(new Tiffin_Information(R.drawable.tiffinimage, "taimur catering services", "9029512341",
-                "andheri", "b1,703,anand krupa tower, hajuri road,thane.", "veg along with egg diishes",
-                "we provide an ample variety of food types and dishes which will change your taste buds",
-                "100-25k", "we dont work on sundays:)"));
-        tiffinservices.add(new Tiffin_Information(R.drawable.tiffinimage, "rajnikanth catering services", "9029512341",
-                "andheri", "b1,703,anand krupa tower, hajuri road,thane.", "veg along with egg diishes",
-                "we provide an ample variety of food types and dishes which will change your taste buds",
-                "100-25k", "we dont work on sundays:)"));
-        tiffinservices.add(new Tiffin_Information(R.drawable.tiffinimage, "kanatbai catering services", "9029512341",
-                "andheri", "b1,703,anand krupa tower, hajuri road,thane.", "veg along with egg diishes",
-                "we provide an ample variety of food types and dishes which will change your taste buds",
-                "100-25k", "we dont work on sundays:)"));
-        tiffinservices.add(new Tiffin_Information(R.drawable.tiffinimage, "yuvraj catering services", "9029512341",
-                "andheri", "b1,703,anand krupa tower, hajuri road,thane.", "veg along with egg diishes",
-                "we provide an ample variety of food types and dishes which will change your taste buds",
-                "100-25k", "we dont work on sundays:)"));
-        
+
         return view;
     }
 
@@ -101,4 +72,6 @@ public class tiffinfragment extends Fragment {
         });
         return;
     }*/
+
+
 }

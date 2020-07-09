@@ -1,0 +1,534 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".Add"
+    android:padding="10dp">
+
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="cursive"
+            android:text="Add Site"
+            android:textColor="#000000"
+            android:textSize="75dp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/pglogo" />
+
+    </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-20dp"
+            android:fontFamily="cursive"
+            android:text="Location"
+            android:textColor="#000000"
+            android:textSize="40dp"
+            android:textStyle="normal" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:textColorHint="@color/colorAccent">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Name"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:textSize="20dp"
+            android:id="@+id/afname"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:textColorHint="@color/colorAccent">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Address"
+            android:ems="10"
+            android:inputType="textMultiLine"
+            android:textSize="20dp"
+            android:id="@+id/afaddress"
+            android:gravity="start|top"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="City :"
+            android:textStyle="normal"
+            android:textColor="@color/colorAccent"
+            android:gravity="left"
+            android:textSize="25dp"
+            />
+
+        <Spinner
+            android:layout_marginTop="10dp"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:id="@+id/afcityspinner"
+            android:spinnerMode="dialog"
+            android:textAlignment="center"
+            android:gravity="center_horizontal"
+            android:layout_marginLeft="10dp"
+            />
+
+    </LinearLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:layout_weight="1"
+            android:textColorHint="@color/colorAccent">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Pincode"
+                android:ems="10"
+                android:inputType="number"
+                android:textSize="20dp"
+                android:id="@+id/afpincode"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:textColorHint="@color/colorAccent">
+        <com.santalu.maskedittext.MaskEditText
+            android:id="@+id/afphonenumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Phone Number"
+            android:ems="10"
+            android:inputType="phone"
+            app:met_mask="###########"
+            android:textSize="20dp"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:textColorHint="@color/colorAccent">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email-Id"
+            android:ems="10"
+            android:inputType="textEmailAddress"
+            android:textSize="20dp"
+            android:id="@+id/afemail"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="cursive"
+            android:text="Description"
+            android:textColor="#000000"
+            android:textSize="40dp"
+            android:textStyle="normal" />
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Type :"
+                android:textSize="30dp"
+                android:textStyle="normal"
+                android:textColor="@color/colorAccent"
+                />
+
+            <Spinner
+                android:layout_width="250dp"
+                android:layout_height="match_parent"
+                android:id="@+id/aftypespinner"
+                android:spinnerMode="dialog"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:textAlignment="center"
+                android:gravity="center_horizontal"
+                />
+
+        </LinearLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:textColorHint="@color/colorAccent">
+            <com.santalu.maskedittext.MaskEditText
+                android:id="@+id/afrentpermonth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Rent per month(INR)"
+                android:ems="10"
+                android:inputType="number"
+                android:textSize="20dp"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Facilities in Vicinity"
+            android:textSize="23dp"
+            android:id="@+id/affacilityinvicinitytv"
+            android:textStyle="normal"
+            android:textColor="@color/colorAccent"
+            android:layout_marginTop="10dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Market"
+                android:layout_weight="1"
+                android:id="@+id/afcbmarket"
+                android:padding="5dp"
+                android:textColor="@color/colorAccent"
+                />
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="hospital/clinic"
+                android:layout_weight="1"
+                android:id="@+id/afcbhospitalorclinic"
+                android:padding="5dp"
+                android:textColor="@color/colorAccent"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mall"
+                android:layout_weight="1"
+                android:id="@+id/afcbmall"
+                android:padding="5dp"
+                android:textColor="@color/colorAccent"
+                />
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="theatre"
+                android:layout_marginRight="23dp"
+                android:layout_weight="1"
+                android:id="@+id/afcbtheatre"
+                android:padding="5dp"
+                android:textColor="@color/colorAccent"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Eateries"
+                android:layout_weight="1"
+                android:id="@+id/afcbeateries"
+                android:padding="5dp"
+                android:textColor="@color/colorAccent"
+                />
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ground/Park"
+                android:layout_weight="1"
+                android:id="@+id/afcbgroundpark"
+                android:padding="5dp"
+                android:layout_marginRight="10dp"
+                android:textColor="@color/colorAccent"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Stationary"
+                android:layout_weight="1"
+                android:id="@+id/afcbstationary"
+                android:padding="5dp"
+                android:textColor="@color/colorAccent"
+                />
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gym"
+                android:layout_weight="1"
+                android:id="@+id/afcbgym"
+                android:padding="5dp"
+                android:textColor="@color/colorAccent"
+                android:layout_marginRight="72dp"
+                />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Food Availablity"
+            android:textSize="25dp"
+            android:textStyle="normal"
+            android:id="@+id/affoodavaibilitytextview"
+            android:textColor="@color/colorAccent"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/affoodavaibilityradiogroup"
+                android:orientation="horizontal">
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Yes"
+                    android:id="@+id/affarbyes"
+                    android:textColor="@color/colorAccent"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="No"
+                    android:id="@+id/affarbno"
+                    android:textColor="@color/colorAccent"
+                    android:layout_marginLeft="120dp"/>
+            </RadioGroup>
+        </LinearLayout>
+
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Furnishment?"
+            android:textSize="25dp"
+            android:textStyle="normal"
+            android:id="@+id/affurnishmenttextview"
+            android:textColor="@color/colorAccent"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/affurnishmentradiogroup"
+                android:orientation="horizontal">
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Yes"
+                    android:layout_weight="1"
+                    android:id="@+id/affrbyes"
+                    android:textColor="@color/colorAccent"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Somewhat"
+                    android:layout_marginLeft="25dp"
+                    android:layout_weight="1"
+                    android:id="@+id/affrbsomewhat"
+                    android:textColor="@color/colorAccent"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="No"
+                    android:layout_marginLeft="25dp"
+                    android:layout_weight="1"
+                    android:id="@+id/affrbno"
+                    android:textColor="@color/colorAccent"/>
+            </RadioGroup>
+        </LinearLayout>
+
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="AC Availibility"
+            android:textSize="25dp"
+            android:textStyle="normal"
+            android:id="@+id/afacavailibiliytextview"
+            android:textColor="@color/colorAccent"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/afacavalibilityradiogroup"
+                android:orientation="horizontal">
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Yes"
+                    android:layout_weight="1"
+                    android:id="@+id/afacarbyes"
+                    android:textColor="@color/colorAccent"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="No"
+                    android:layout_marginLeft="120dp"
+                    android:layout_weight="1"
+                    android:id="@+id/afacarbno"
+                    android:textColor="@color/colorAccent"/>
+            </RadioGroup>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Room Type :"
+                android:textStyle="normal"
+                android:layout_weight="1"
+                android:textColor="@color/colorAccent"
+                android:gravity="left"
+                android:textSize="25dp"
+                />
+
+            <Spinner
+                android:layout_width="200dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:id="@+id/afroomtypespinner"
+                android:spinnerMode="dialog"
+                android:layout_marginTop="5dp"
+                android:textAlignment="center"
+                android:gravity="center_horizontal"
+                />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="cursive"
+            android:text="Image"
+            android:textColor="#000000"
+            android:textSize="40dp"
+            android:textStyle="normal"
+            android:layout_marginTop="15dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:src="@drawable/ic_add"
+                android:id="@+id/afimageview"
+                />
+
+        </LinearLayout>
+
+        <Button
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:text="Add Site"
+            android:layout_gravity="center"
+            android:textSize="20sp"
+            android:layout_marginTop="75dp"
+            android:id="@+id/afaddsiteButton"
+            android:background="@drawable/button_shape"
+            android:layout_marginBottom="10dp"
+            android:onClick="validatesite"
+            />
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:id="@+id/afasprogressbar"
+            android:layout_marginBottom="30dp"
+            android:visibility="invisible"
+            />
+
+    </LinearLayout>
+
+</ScrollView>

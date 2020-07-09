@@ -19,23 +19,23 @@
         android:transitionName="imagetransition"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:src="@drawable/ic_launcher_background"
+        android:src="@drawable/pglogo"
         android:id="@+id/loginpagelogo"
         />
 
     <TextView
-        android:transitionName="texttransition"
-        android:layout_width="wrap_content"
+        android:id="@+id/loginpagename"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/bangers"
+        android:fontFamily="cursive"
         android:text="Pg Locator"
-        android:textColor="@color/colorAccent"
-        android:textSize="50dp"
+        android:textColor="#000000"
+        android:textSize="80dp"
         android:textStyle="normal"
-        android:id="@+id/loginpagename"/>
+        android:transitionName="texttransition" />
 
     <TextView
-        android:layout_marginTop="75dp"
+        android:layout_marginTop="55dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Login"
@@ -90,7 +90,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/loginpageverifyemaillink"
-        android:text="Sign Up Here"
+        android:text="Verify E-Mail"
         android:clickable="false"
         android:visibility="invisible"
         android:textColor="@color/colorAccent"
@@ -105,6 +105,7 @@
         android:focusableInTouchMode="true"
         android:textColorHint="@color/colorAccent"
         app:passwordToggleEnabled="true"
+        app:passwordToggleTint="@color/colorAccent"
         android:layout_marginTop="5dp">
         <EditText
             android:layout_width="match_parent"

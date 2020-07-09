@@ -1,7 +1,7 @@
 package com.example.pglocator;
 
 public class Owner_helper_Class {
-    String Name;
+    String UID, Name;
     int Age;
     String Sex, Phonenumber, Email, Aadharnumber, Username, Password;
 
@@ -9,8 +9,9 @@ public class Owner_helper_Class {
 
     }
 
-    public Owner_helper_Class(String name, int age, String sex, String phonenumber,
+    public Owner_helper_Class(String uid, String name, int age, String sex, String phonenumber,
                               String email, String aadharnumber, String username, String password) {
+        UID = uid;
         Name = name;
         Age = age;
         Sex = sex;
@@ -20,6 +21,9 @@ public class Owner_helper_Class {
         Username = username;
         Password = password;
     }
+
+    public String getUID() { return UID; }
+    public void setUID(String UID) { this.UID = UID; }
 
     public String getName() { return Name; }
     public void setName(String name) { Name = name; }

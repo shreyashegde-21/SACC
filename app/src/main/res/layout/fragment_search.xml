@@ -38,14 +38,14 @@
                     android:id="@+id/sfbhtitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/bungee"
-                    android:text="Boys Hostel"
+                    android:layout_below="@+id/sfbhlogo"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="15dp"
-                    android:textColor="#000000"
+                    android:fontFamily="cursive"
                     android:includeFontPadding="false"
-                    android:textSize="20sp"
-                    android:layout_below="@+id/sfbhlogo"/>
+                    android:text="Boys Hostel"
+                    android:textColor="#000000"
+                    android:textSize="30sp" />
 
                 <Button
                     android:layout_width="match_parent"
@@ -82,14 +82,14 @@
                     android:id="@+id/sfghtitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/bungee"
-                    android:text="Girls Hostel"
+                    android:layout_below="@+id/sfghlogo"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="15dp"
-                    android:textColor="#000000"
+                    android:fontFamily="cursive"
                     android:includeFontPadding="false"
-                    android:textSize="20sp"
-                    android:layout_below="@+id/sfghlogo"/>
+                    android:text="Girls Hostel"
+                    android:textColor="#000000"
+                    android:textSize="30sp" />
 
                 <Button
                     android:layout_width="match_parent"
@@ -131,14 +131,14 @@
                         android:id="@+id/sfbpgtitle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/bungee"
-                        android:text="Boys PG"
+                        android:layout_below="@+id/sfbpglogo"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="15dp"
-                        android:textColor="#000000"
+                        android:fontFamily="cursive"
                         android:includeFontPadding="false"
-                        android:textSize="20sp"
-                        android:layout_below="@+id/sfbpglogo"/>
+                        android:text="Boys PG"
+                        android:textColor="#000000"
+                        android:textSize="30sp" />
 
                     <Button
                         android:layout_width="match_parent"
@@ -175,14 +175,14 @@
                         android:id="@+id/sfgpgtitle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/bungee"
-                        android:text="Girls PG"
+                        android:layout_below="@+id/sfgpglogo"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="15dp"
-                        android:textColor="#000000"
+                        android:fontFamily="cursive"
                         android:includeFontPadding="false"
-                        android:textSize="20sp"
-                        android:layout_below="@+id/sfgpglogo"/>
+                        android:text="Girls PG"
+                        android:textColor="#000000"
+                        android:textSize="30sp" />
 
                     <Button
                         android:layout_width="match_parent"
@@ -196,12 +196,11 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="190dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:layout_weight="1"
                 android:layout_margin="10dp"
                 app:cardBackgroundColor="@color/colorPrimary"
                 app:cardElevation="10dp"
@@ -223,14 +222,14 @@
                         android:id="@+id/sfrenttitle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/bungee"
-                        android:text="houses for rent"
+                        android:layout_below="@+id/sfrentlogo"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="15dp"
-                        android:textColor="#000000"
+                        android:fontFamily="cursive"
                         android:includeFontPadding="false"
-                        android:textSize="15sp"
-                        android:layout_below="@+id/sfrentlogo"/>
+                        android:text="houses for rent"
+                        android:textColor="#000000"
+                        android:textSize="30sp" />
 
                     <Button
                         android:layout_width="match_parent"

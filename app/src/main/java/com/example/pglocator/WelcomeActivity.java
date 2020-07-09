@@ -15,7 +15,7 @@ import android.widget.TextView;
 
 public class WelcomeActivity extends AppCompatActivity {
 
-    private static int Splash_Time_Out = 3000;
+    private static int Splash_Time_Out = 1300;
     private Animation top,bottom;
     private ImageView wplogo;
     private TextView wpname,wpdescription;
@@ -40,17 +40,6 @@ public class WelcomeActivity extends AppCompatActivity {
             @Override
             public void run() {
                 Intent into = new Intent(WelcomeActivity.this, Login_Activity.class);
-
-               /* Pair[] pairs = new Pair[2];
-                pairs[0] = new Pair<View, String>(wplogo, "imagetransition");
-                pairs[1] = new Pair<View, String>(wpname, "texttransition");
-
-                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-                    ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(WelcomeActivity.this, pairs);
-
-                    startActivity(into, options.toBundle());
-                }*/
-
                 startActivity(into);
                 finish();
             }
